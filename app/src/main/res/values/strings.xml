@@ -1,0 +1,19 @@
+<resources>
+
+    <string name="app_name">Science CI</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- STRING UTIL -->
+    <string name="debug_key">sciencecidebugkey</string>
+    <string name="title_activity_login">Login</string>
+    <!-- END STRING UTIL -->
+
+    <!-- BUTTON STRINGS -->
+    <string name="button_login">Login</string>
+    <!-- END BUTTON STRINGS -->
+
+    <!-- HINT STRINGS -->
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <!-- END HINT STRINGS -->
+</resources>
