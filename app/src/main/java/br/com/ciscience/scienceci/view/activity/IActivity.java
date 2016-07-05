@@ -5,6 +5,8 @@ package br.com.ciscience.scienceci.view.activity;
  */
 public interface IActivity {
 
+    void setActionBarDrawerToggle();
 
+    void loadDefaultMenu();
 
 }

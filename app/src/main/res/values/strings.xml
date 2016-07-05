@@ -12,8 +12,24 @@
     <string name="button_login">Login</string>
     <!-- END BUTTON STRINGS -->
 
+    <!-- TEXTVIEW STRINGS -->
+    <string name="text_view_recovery_password">Forgot your password?</string>
+    <!-- END TEXTVIEW STRINGS -->
+
     <!-- HINT STRINGS -->
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <!-- END HINT STRINGS -->
+
+    <!-- MENU DRAWER STRINGS -->
+    <string name="drawer_menu_profile">My Profile</string>
+    <string name="drawer_menu_rules">Rules</string>
+    <string name="drawer_menu_ranking">Ranking</string>
+    <string name="drawer_menu_contact">Contact</string>
+    <string name="drawer_menu_logout">Logout</string>
+    <!-- END MENU DRAWER STRINGS -->
+
+    <!-- FAKE STRINGS -->
+    <string name="fake_student_name">Lisa Rose Snow</string>
+    <!-- END FAKE STRINGS -->
 </resources>

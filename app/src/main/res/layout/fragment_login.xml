@@ -2,26 +2,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     tools:context=".view.fragment.impl.LoginActivityFragment"
     tools:showIn="@layout/activity_login">
+
+    <ImageView
+        android:id="@+id/imageViewLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="175dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/sciencelogo"/>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayoutEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/imageViewLogo"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin">
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:textColorHint="@android:color/white">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/textInputEditTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_email"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress"
+            android:focusable="false"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -34,14 +43,16 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_below="@id/textInputLayoutEmail">
+        android:layout_below="@id/textInputLayoutEmail"
+        android:textColorHint="@android:color/white">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/textInputEditTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_password"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:focusable="false"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -55,6 +66,15 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_below="@id/textInputLayoutPassword"
-        android:text="@string/button_login"/>
+        android:text="@string/button_login"
+        style="@style/AppTheme.NoActionBar.ButtonLogInScreen"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonLogin"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorText"
+        android:text="@string/text_view_recovery_password"/>
 
 </RelativeLayout>

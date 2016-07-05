@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single"
+        android:id="@+id/group_home_menu">
+
+        <item
+            android:id="@+id/drawer_menu_profile"
+            android:checkable="true"
+            android:title="@string/drawer_menu_profile"
+            android:icon="@drawable/ic_profile_white_24dp"/>
+
+        <item
+            android:id="@+id/drawer_menu_rules"
+            android:checkable="true"
+            android:title="@string/drawer_menu_rules"
+            android:icon="@drawable/ic_rules_white_24dp"/>
+
+        <item
+            android:id="@+id/drawer_menu_ranking"
+            android:checkable="true"
+            android:title="@string/drawer_menu_ranking"
+            android:icon="@drawable/ic_ranking_white_24dp"/>
+
+        <item
+            android:id="@+id/drawer_menu_contact"
+            android:checkable="true"
+            android:title="@string/drawer_menu_contact"
+            android:icon="@drawable/ic_email_white_24dp"/>
+
+        <item
+            android:id="@+id/drawer_menu_logout"
+            android:checkable="true"
+            android:title="@string/drawer_menu_logout"
+            android:icon="@drawable/ic_logout_white_24dp"/>
+
+    </group>
+</menu>
