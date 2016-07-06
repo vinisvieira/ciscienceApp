@@ -5,4 +5,8 @@
     tools:context=".view.fragment.impl.MainActivityFragment"
     tools:showIn="@layout/activity_main">
 
+    <include
+        android:id="@+id/relativeLayoutNoQuizAvaiable"
+        layout="@layout/fragment_no_quiz_avaiable"/>
+
 </RelativeLayout>

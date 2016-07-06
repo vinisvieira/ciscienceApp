@@ -5,4 +5,6 @@ package br.com.ciscience.scienceci.util;
  */
 public class Constants {
 
+    public static final String DEBUG_KEY = "cisciencedbk";
+
 }

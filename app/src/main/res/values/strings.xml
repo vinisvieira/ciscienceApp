@@ -2,10 +2,10 @@
 
     <string name="app_name">Science CI</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Login</string>
 
     <!-- STRING UTIL -->
     <string name="debug_key">sciencecidebugkey</string>
-    <string name="title_activity_login">Login</string>
     <!-- END STRING UTIL -->
 
     <!-- BUTTON STRINGS -->
@@ -14,6 +14,7 @@
 
     <!-- TEXTVIEW STRINGS -->
     <string name="text_view_recovery_password">Forgot your password?</string>
+    <string name="text_view_no_quiz_avaiable">No quiz avaiable at this time</string>
     <!-- END TEXTVIEW STRINGS -->
 
     <!-- HINT STRINGS -->

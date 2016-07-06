@@ -5,4 +5,5 @@
     <color name="colorAccent">#FFce6031</color>
     <color name="colorBackground">#FF2E3133</color>
     <color name="colorText">#FFE5E5E5</color>
+    <color name="colorTextActionBarTitle">#FFFFFFFF</color>
 </resources>
