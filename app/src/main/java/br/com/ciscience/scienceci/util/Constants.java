@@ -5,6 +5,7 @@ package br.com.ciscience.scienceci.util;
  */
 public class Constants {
 
-    public static final String DEBUG_KEY = "cisciencedbk";
+    // URL's
+    public static final String BASE_URL = "http://localhost/ciscience/api/";
 
 }
