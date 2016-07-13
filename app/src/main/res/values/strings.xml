@@ -10,11 +10,17 @@
 
     <!-- BUTTON STRINGS -->
     <string name="button_login">Login</string>
+    <string name="button_answer">Answer</string>
     <!-- END BUTTON STRINGS -->
 
     <!-- TEXTVIEW STRINGS -->
     <string name="text_view_recovery_password">Forgot your password?</string>
     <string name="text_view_no_quiz_avaiable">No quiz avaiable at this time</string>
+    <string name="text_view_question_timer">Timer</string>
+    <string name="text_view_question_timer_content">00:30</string>
+    <string name="text_view_question_points">Points</string>
+    <string name="text_view_question_points_content">10</string>
+    <string name="text_view_question_text">[UFPE - 2001] Qual deve ser o prazo de aplicação de um capital, a uma taxa de juros simples e anuais de 15%, para que os juros correspondam a três vezes o valor do capital?</string>
     <!-- END TEXTVIEW STRINGS -->
 
     <!-- HINT STRINGS -->

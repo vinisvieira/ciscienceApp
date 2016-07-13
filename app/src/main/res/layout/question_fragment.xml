@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+    
+    <LinearLayout
+        android:id="@+id/linearLayoutCounterPoint"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:weightSum="2">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutTimer"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textViewTimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_item_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_item_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_item_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_item_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_item_horizontal_margin"
+                android:gravity="center"
+                android:textColor="@color/colorText"
+                android:text="@string/text_view_question_timer"/>
+
+            <TextView
+                android:id="@+id/textViewTimerContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/textViewTimer"
+                android:layout_marginTop="@dimen/activity_item_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_item_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_item_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_item_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_item_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_item_vertical_margin"
+                android:gravity="center"
+                android:textSize="@dimen/question_text_size_counter_point"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:text="@string/text_view_question_timer_content"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutPoints"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textViewPoints"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_item_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_item_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_item_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_item_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_item_horizontal_margin"
+                android:gravity="center"
+                android:textColor="@color/colorText"
+                android:text="@string/text_view_question_points"/>
+
+            <TextView
+                android:id="@+id/textViewPointsContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/textViewPoints"
+                android:layout_marginTop="@dimen/activity_item_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_item_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_item_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_item_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_item_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_item_vertical_margin"
+                android:gravity="center"
+                android:textSize="@dimen/question_text_size_counter_point"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:text="@string/text_view_question_points_content"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollViewQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayoutCounterPoint"
+        android:layout_above="@+id/buttonAnswer">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <ImageView
+                android:id="@+id/imageViewQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:src="@drawable/graphic"/>
+
+            <TextView
+                android:id="@+id/textViewQuestionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewQuestion"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:textSize="@dimen/question_text_size_question_text"
+                android:textColor="@color/colorText"
+                android:textStyle="italic"
+                android:text="@string/text_view_question_text"/>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerViewQuestionAlternatives"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/textViewQuestionText"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/button_answer"
+        style="@style/AppTheme.NoActionBar.ButtonLogInScreen"/>
+
+</RelativeLayout>
