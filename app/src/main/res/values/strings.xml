@@ -36,6 +36,11 @@
     <string name="drawer_menu_logout">Logout</string>
     <!-- END MENU DRAWER STRINGS -->
 
+    <!-- ERROR STRINGS -->
+    <string name="error_invalid_login">Invalid Login! Try again</string>
+    <string name="error_empty_fields">Required fields are empty! Try again</string>
+    <!-- END ERROR STRINGS -->
+
     <!-- FAKE STRINGS -->
     <string name="fake_student_name">Lisa Rose Snow</string>
     <!-- END FAKE STRINGS -->

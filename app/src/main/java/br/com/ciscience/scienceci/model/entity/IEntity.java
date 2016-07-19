@@ -5,4 +5,6 @@ package br.com.ciscience.scienceci.model.entity;
  */
 public interface IEntity {
 
+    boolean validateFields();
+
 }
