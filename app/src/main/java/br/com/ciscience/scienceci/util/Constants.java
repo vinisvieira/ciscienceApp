@@ -11,4 +11,7 @@ public class Constants {
     // DEBUG KEY
     public static final String DEBUG_KEY = "sciencecidebugkey";
 
+    // FRAGMENT STRINGS
+    public static final int LOGOUT_DIALOG_FRAGMENT = 0;
+
 }

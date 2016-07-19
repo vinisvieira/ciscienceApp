@@ -11,6 +11,10 @@ public interface IUserPresenter {
 
     void login(Student student);
 
+    void destroySession();
+
+    Student getSession();
+
     void showProgressBar();
 
     void hideProgressBar();
@@ -22,6 +26,8 @@ public interface IUserPresenter {
     void startMainActivity();
 
     void onDestroy();
+
+    void finishActivity();
 
     Activity getFragmentActivity();
 

@@ -9,7 +9,8 @@
     <RelativeLayout
         android:id="@+id/relativeLayoutLogin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/imageViewLogo"
@@ -86,8 +87,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayoutLoginSplash"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/imageViewLogoSplash"

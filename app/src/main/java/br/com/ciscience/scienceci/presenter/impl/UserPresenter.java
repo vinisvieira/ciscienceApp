@@ -48,6 +48,7 @@ public class UserPresenter implements IUserPresenter {
                                 .subscribe(new Observer<Student>() {
                                     @Override
                                     public void onCompleted() {
+                                        finishActivity();
                                         startMainActivity();
                                     }
 
@@ -64,6 +65,16 @@ public class UserPresenter implements IUserPresenter {
                                     }
                                 })
                 );
+    }
+
+    @Override
+    public void destroySession() {
+        this.mIUserLocalAPI.destroySession();
+    }
+
+    @Override
+    public Student getSession() {
+        return this.mIUserLocalAPI.getSession();
     }
 
     @Override
@@ -94,6 +105,11 @@ public class UserPresenter implements IUserPresenter {
     @Override
     public void onDestroy() {
         this.mCompositeSubscription.unsubscribe();
+    }
+
+    @Override
+    public void finishActivity() {
+        this.mIUserView.finishActivity();
     }
 
     @Override

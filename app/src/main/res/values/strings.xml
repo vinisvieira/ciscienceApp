@@ -29,6 +29,7 @@
     <!-- END HINT STRINGS -->
 
     <!-- MENU DRAWER STRINGS -->
+    <string name="drawer_menu_quiz">Quiz</string>
     <string name="drawer_menu_profile">My Profile</string>
     <string name="drawer_menu_rules">Rules</string>
     <string name="drawer_menu_ranking">Ranking</string>
@@ -40,6 +41,13 @@
     <string name="error_invalid_login">Invalid Login! Try again</string>
     <string name="error_empty_fields">Required fields are empty! Try again</string>
     <!-- END ERROR STRINGS -->
+
+    <!-- STRINGS DIALOG FRAGMENT -->
+    <string name="logout_dialog_title">Logout</string>
+    <string name="logout_dialog_message">Do you really want to logout? :(</string>
+    <string name="logout_dialog_positive_button">Yes</string>
+    <string name="logout_dialog_negative_button">No way!</string>
+    <!-- END STRINGS DIALOG FRAGMENT -->
 
     <!-- FAKE STRINGS -->
     <string name="fake_student_name">Lisa Rose Snow</string>

@@ -51,6 +51,7 @@ public class LoginActivityFragment extends Fragment implements IUserView, View.O
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        this.userLoggedIn();
     }
 
     @OnClick({R.id.buttonLogin})
@@ -61,6 +62,21 @@ public class LoginActivityFragment extends Fragment implements IUserView, View.O
                 this.login();
                 break;
         }
+    }
+
+    @Override
+    public void userLoggedIn() {
+        if (this.getSession() != null) {
+            this.finishActivity();
+            this.startMainActivity();
+        } else {
+            this.hideProgressBar();
+        }
+    }
+
+    @Override
+    public Student getSession() {
+        return this.mIUserPresenter.getSession();
     }
 
     @Override
@@ -92,6 +108,11 @@ public class LoginActivityFragment extends Fragment implements IUserView, View.O
     @Override
     public void startMainActivity() {
         startActivity(new Intent(getFragmentActivity(), MainActivity.class));
+    }
+
+    @Override
+    public void finishActivity() {
+        this.getFragmentActivity().finish();
     }
 
     @Override

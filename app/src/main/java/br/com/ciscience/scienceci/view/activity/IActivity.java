@@ -5,7 +5,11 @@ package br.com.ciscience.scienceci.view.activity;
  */
 public interface IActivity {
 
+    void showFragment(int idFragment);
+
     void setActionBarDrawerToggle();
+
+    void setCheckedItemNavigationView(int currentFragment);
 
     void loadDefaultMenu();
 

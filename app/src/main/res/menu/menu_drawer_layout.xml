@@ -5,6 +5,12 @@
         android:id="@+id/group_home_menu">
 
         <item
+            android:id="@+id/drawer_menu_quiz"
+            android:checkable="true"
+            android:title="@string/drawer_menu_quiz"
+            android:icon="@drawable/ic_question_white_24dp"/>
+
+        <item
             android:id="@+id/drawer_menu_profile"
             android:checkable="true"
             android:title="@string/drawer_menu_profile"
