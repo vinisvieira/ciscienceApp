@@ -26,6 +26,7 @@
     <!-- HINT STRINGS -->
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
+    <string name="text_view_quiz_contest">Contest</string>
     <!-- END HINT STRINGS -->
 
     <!-- MENU DRAWER STRINGS -->
@@ -40,6 +41,7 @@
     <!-- ERROR STRINGS -->
     <string name="error_invalid_login">Invalid Login! Try again</string>
     <string name="error_empty_fields">Required fields are empty! Try again</string>
+    <string name="error_network_processing">Error during the network process. Try again!</string>
     <!-- END ERROR STRINGS -->
 
     <!-- STRINGS DIALOG FRAGMENT -->

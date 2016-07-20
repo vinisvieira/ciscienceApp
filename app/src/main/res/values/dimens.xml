@@ -4,10 +4,23 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activity_item_horizontal_margin">8dp</dimen>
     <dimen name="activity_item_vertical_margin">8dp</dimen>
+    <dimen name="activity_top_padding">8dp</dimen>
+    <dimen name="activity_bottom_padding">8dp</dimen>
+    <dimen name="activity_left_padding">8dp</dimen>
+    <dimen name="activity_righ_padding">8dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
     <!-- QUESTION TEXT SIZE -->
     <dimen name="question_text_size_counter_point">30sp</dimen>
     <dimen name="question_text_size_question_text">20sp</dimen>
     <!-- END QUESTION TEXT SIZE -->
+
+    <!-- CARDVIEW DIMENS -->
+    <dimen name="text_size_card_news_title">20sp</dimen>
+    <dimen name="text_size_card_news_date">12sp</dimen>
+    <dimen name="text_size_card_news_excerpt">14sp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_left_and_right_margin">4dp</dimen>
+    <!-- END CARDVIEW DIMENS -->
+
 </resources>

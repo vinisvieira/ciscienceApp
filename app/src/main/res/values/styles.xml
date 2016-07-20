@@ -17,6 +17,11 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AppTheme.NoActionBar.CardTextViewTitle">
+        <item name="android:textSize">@dimen/text_size_card_news_title</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
     <style name="AppTheme.NoActionBar.TextViewHeaderLayout">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:singleLine">true</item>

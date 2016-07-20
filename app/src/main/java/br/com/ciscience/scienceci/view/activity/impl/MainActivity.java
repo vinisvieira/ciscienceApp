@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,9 +18,11 @@ import br.com.ciscience.scienceci.model.entity.impl.Student;
 import br.com.ciscience.scienceci.presenter.IUserPresenter;
 import br.com.ciscience.scienceci.presenter.impl.UserPresenter;
 import br.com.ciscience.scienceci.util.Constants;
+import br.com.ciscience.scienceci.util.SystemServices;
 import br.com.ciscience.scienceci.view.activity.IActivity;
 import br.com.ciscience.scienceci.view.fragment.IDialog;
 import br.com.ciscience.scienceci.view.fragment.IUserView;
+import br.com.ciscience.scienceci.view.fragment.impl.QuizFragment;
 import br.com.ciscience.scienceci.view.fragment.impl.StudentLogoutDialog;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,8 +54,28 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
     }
 
     @Override
+    public boolean isCurrentOnDisplay(int idFragment) {
+        return (this.mCurrentFragment == idFragment);
+    }
+
+    @Override
     public void showFragment(int idFragment) {
         switch (idFragment) {
+            case Constants.QUIZ_FRAGMENT:
+                if (!this.isCurrentOnDisplay(Constants.QUIZ_FRAGMENT)) {
+                    this.mCurrentFragment = Constants.QUIZ_FRAGMENT;
+
+                    this.setCheckedItemNavigationView(Constants.QUIZ_FRAGMENT);
+
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, new QuizFragment())
+                            .commit();
+                    SystemServices.changeToolbarTitle(MainActivity.this, getResources().getString(R.string.drawer_menu_quiz));
+                }
+                new Handler().postDelayed(this::closeDrawerMenu, 120);
+                break;
+
             case Constants.LOGOUT_DIALOG_FRAGMENT:
                 this.closeDrawerMenu();
                 this.mAppCompatDialogFragment = new StudentLogoutDialog();
@@ -71,6 +94,10 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
     @Override
     public void setCheckedItemNavigationView(int currentFragment) {
         switch (currentFragment) {
+            case Constants.QUIZ_FRAGMENT:
+                this.navigationView.setCheckedItem(R.id.drawer_menu_quiz);
+                break;
+
             case Constants.LOGOUT_DIALOG_FRAGMENT:
                 this.navigationView.setCheckedItem(R.id.drawer_menu_quiz);
                 break;
@@ -82,12 +109,15 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
         this.navigationView.getMenu().clear();
         this.navigationView.inflateMenu(R.menu.menu_drawer_layout);
         this.navigationView.setNavigationItemSelectedListener(this);
+
+        this.showFragment(Constants.QUIZ_FRAGMENT);
     }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.drawer_menu_quiz:
+                this.showFragment(Constants.QUIZ_FRAGMENT);
                 return true;
             case R.id.drawer_menu_profile:
                 return true;

@@ -13,4 +13,6 @@ public interface IActivity {
 
     void loadDefaultMenu();
 
+    boolean isCurrentOnDisplay(int currentFragment);
+
 }

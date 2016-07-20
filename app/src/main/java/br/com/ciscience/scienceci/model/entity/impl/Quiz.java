@@ -11,6 +11,7 @@ public class Quiz {
     private Long id;
     private String name;
     private List<Question> questions;
+    private Contest contest;
     private Date date;
 
     public Long getId() {
@@ -33,6 +34,14 @@ public class Quiz {
         return questions;
     }
 
+    public Contest getContest() {
+        return contest;
+    }
+
+    public void setContest(Contest contest) {
+        this.contest = contest;
+    }
+
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
@@ -47,8 +56,12 @@ public class Quiz {
 
     @Override
     public String toString() {
-        return "Quiz [id=" + id + ", name=" + name + ", questions=" + questions
-                + ", date=" + date + "]";
+        return "Quiz{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", questions=" + questions +
+                ", contest=" + contest +
+                ", date=" + date +
+                '}';
     }
-
 }

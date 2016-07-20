@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:res-auto="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_quiz"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/card_left_and_right_margin"
+    android:layout_marginLeft="@dimen/card_left_and_right_margin"
+    android:layout_marginEnd="@dimen/card_left_and_right_margin"
+    android:layout_marginRight="@dimen/card_left_and_right_margin"
+    android:clickable="true"
+    android:foreground="?selectableItemBackground"
+    res-auto:cardBackgroundColor="@color/colorBackground"
+    res-auto:cardUseCompatPadding="true"
+    res-auto:cardElevation="@dimen/cardview_default_elevation"
+    res-auto:cardCornerRadius="@dimen/cardview_default_radius">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutQuizText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_righ_padding">
+
+            <TextView
+                android:id="@+id/quizName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Título"
+                style="@style/AppTheme.NoActionBar.CardTextViewTitle"/>
+
+            <TextView
+                android:id="@+id/textViewQuizContest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/quizName"
+                android:text="@string/text_view_quiz_contest"
+                android:textColor="@color/colorAccent"
+                android:layout_marginRight="@dimen/card_left_and_right_margin"
+                android:layout_marginEnd="@dimen/card_left_and_right_margin"/>
+
+            <TextView
+                android:id="@+id/quizContest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/quizName"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:layout_toRightOf="@+id/textViewQuizContest"
+                android:layout_toEndOf="@id/textViewQuizContest"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textViewDividerOne"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_below="@+id/relativeLayoutQuizText"
+            android:background="@color/colorDivider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewDividerOne"
+            android:layout_centerHorizontal="true"
+            android:weightSum="1"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonAnswer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/activity_righ_padding"
+                android:layout_marginStart="@dimen/activity_righ_padding"
+                android:text="@string/button_answer"
+                android:textColor="@color/colorAccent"
+                style="@style/Widget.AppCompat.Button.Borderless" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

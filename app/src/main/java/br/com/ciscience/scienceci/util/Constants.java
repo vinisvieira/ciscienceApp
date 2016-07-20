@@ -12,6 +12,7 @@ public class Constants {
     public static final String DEBUG_KEY = "sciencecidebugkey";
 
     // FRAGMENT STRINGS
+    public static final int QUIZ_FRAGMENT = 1;
     public static final int LOGOUT_DIALOG_FRAGMENT = 0;
 
 }
