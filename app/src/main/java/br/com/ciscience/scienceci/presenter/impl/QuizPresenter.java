@@ -55,7 +55,6 @@ public class QuizPresenter implements IQuizPresenter {
                                     @Override
                                     public void onCompleted() {
                                         hideRefresh();
-                                        Log.d(Constants.DEBUG_KEY, "onCompleted");
                                     }
 
                                     @Override
@@ -65,7 +64,6 @@ public class QuizPresenter implements IQuizPresenter {
                                         hideRefresh();
                                         showNetworkError();
                                         showSnackbarMessage(R.string.error_network_processing, Snackbar.LENGTH_LONG);
-                                        Log.d(Constants.DEBUG_KEY, "onError");
                                     }
 
                                     @Override
@@ -75,6 +73,7 @@ public class QuizPresenter implements IQuizPresenter {
                                             showEmptyQuiz();
                                         } else {
                                             showQuizOnUI(quiz);
+                                            Log.d(Constants.DEBUG_KEY, quiz.toString());
                                         }
                                     }
                                 })

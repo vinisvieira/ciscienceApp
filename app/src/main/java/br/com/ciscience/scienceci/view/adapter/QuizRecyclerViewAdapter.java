@@ -1,11 +1,14 @@
 package br.com.ciscience.scienceci.view.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +16,7 @@ import java.util.List;
 import br.com.ciscience.scienceci.R;
 import br.com.ciscience.scienceci.model.entity.impl.Quiz;
 import br.com.ciscience.scienceci.util.Constants;
+import br.com.ciscience.scienceci.view.activity.impl.QuestionActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -22,9 +26,11 @@ import butterknife.OnClick;
  */
 public class QuizRecyclerViewAdapter extends RecyclerView.Adapter<QuizRecyclerViewAdapter.QuizViewHolder> {
 
+    private Context mContext;
     private List<Quiz> mQuiz;
 
-    public QuizRecyclerViewAdapter() {
+    public QuizRecyclerViewAdapter(Context context) {
+        this.mContext = context;
         if (this.mQuiz == null ) this.mQuiz = new ArrayList<>();
     }
 
@@ -69,7 +75,8 @@ public class QuizRecyclerViewAdapter extends RecyclerView.Adapter<QuizRecyclerVi
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.buttonAnswer:
-                    Log.d(Constants.DEBUG_KEY, "onClick -> " + view);
+                    String questionJSON = new Gson().toJson(mQuiz.get(getLayoutPosition()).getQuestions());
+                    mContext.startActivity(new Intent(mContext, QuestionActivity.class).putExtra(Constants.INTENT_KEY_QUESTION, questionJSON));
                     break;
             }
         }

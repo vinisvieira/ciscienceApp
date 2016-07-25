@@ -53,5 +53,6 @@
 
     <!-- FAKE STRINGS -->
     <string name="fake_student_name">Lisa Rose Snow</string>
+    <string name="title_activity_question">QuestionActivity</string>
     <!-- END FAKE STRINGS -->
 </resources>

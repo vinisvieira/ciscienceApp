@@ -65,7 +65,7 @@ public class QuizFragment extends Fragment implements IFragment, IQuizView, Swip
                 R.color.colorAccent);
         this.swipeRefreshLayoutQuiz.setOnRefreshListener(this);
         this.recyclerViewQuiz.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        this.mQuizRecyclerViewAdapter = new QuizRecyclerViewAdapter();
+        this.mQuizRecyclerViewAdapter = new QuizRecyclerViewAdapter(getFragmentActivity());
         this.recyclerViewQuiz.setAdapter(this.mQuizRecyclerViewAdapter);
     }
 

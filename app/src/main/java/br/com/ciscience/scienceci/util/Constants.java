@@ -6,7 +6,7 @@ package br.com.ciscience.scienceci.util;
 public class Constants {
 
     // URL's
-    public static final String BASE_URL = "http://10.0.3.2:8080/ciscience/api/";
+    public static final String BASE_URL = "http://scienceresultado.com.br/api/";
 
     // DEBUG KEY
     public static final String DEBUG_KEY = "sciencecidebugkey";
@@ -14,5 +14,8 @@ public class Constants {
     // FRAGMENT STRINGS
     public static final int QUIZ_FRAGMENT = 1;
     public static final int LOGOUT_DIALOG_FRAGMENT = 0;
+
+    // EXTRA KEYS
+    public static final String INTENT_KEY_QUESTION = "ikq";
 
 }
