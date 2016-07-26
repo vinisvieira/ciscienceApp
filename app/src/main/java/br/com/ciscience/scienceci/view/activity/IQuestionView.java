@@ -12,13 +12,21 @@ public interface IQuestionView {
 
     void getQuestions();
 
+    Question getCurrentQuestion();
+
     void loadQuestionsOnMemory(List<Question> questions);
 
     void answerQuestion();
 
-    void setNewScore(Question question);
+    void completeQuiz();
 
-    void showCorrectAnswer(Question question);
+    void showAnswerButton();
+
+    void showNextQuestionButton();
+
+    void showFinishQuizButton();
+
+    void showCorrectAnswer();
 
     void callNextQuestion();
 
@@ -28,6 +36,8 @@ public interface IQuestionView {
 
     void showAlternativesOnUI(List<Alternative> alternatives);
 
-    void startQuiz(Question question);
+    void showToastMessage(String message, int duration);
+
+    void showToastMessage(int resId, int duration);
 
 }

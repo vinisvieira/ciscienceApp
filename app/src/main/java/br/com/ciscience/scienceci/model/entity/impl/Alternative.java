@@ -26,7 +26,7 @@ public class Alternative {
         this.text = text;
     }
 
-    public boolean isAnswer() {
+    public boolean getAnswer() {
         return answer;
     }
 

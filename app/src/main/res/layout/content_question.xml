@@ -133,7 +133,6 @@
                 android:textStyle="italic"
                 android:text="@string/text_view_question_text"/>
 
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerViewQuestionAlternatives"
                 android:layout_width="match_parent"
@@ -155,6 +154,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="@string/button_answer"
+        style="@style/AppTheme.NoActionBar.ButtonLogInScreen"/>
+
+    <Button
+        android:id="@+id/buttonNextQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/button_next_question"
+        android:visibility="gone"
+        style="@style/AppTheme.NoActionBar.ButtonLogInScreen"/>
+
+    <Button
+        android:id="@+id/buttonFinishQuiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/button_finish_quiz"
+        android:visibility="gone"
         style="@style/AppTheme.NoActionBar.ButtonLogInScreen"/>
 
 </RelativeLayout>

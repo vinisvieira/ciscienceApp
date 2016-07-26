@@ -11,6 +11,8 @@
     <!-- BUTTON STRINGS -->
     <string name="button_login">Login</string>
     <string name="button_answer">Answer</string>
+    <string name="button_next_question">Next Question</string>
+    <string name="button_finish_quiz">Finish Quiz</string>
     <!-- END BUTTON STRINGS -->
 
     <!-- TEXTVIEW STRINGS -->
@@ -42,6 +44,7 @@
     <string name="error_invalid_login">Invalid Login! Try again</string>
     <string name="error_empty_fields">Required fields are empty! Try again</string>
     <string name="error_network_processing">Error during the network process. Try again!</string>
+    <string name="error_no_alternative_selected">Select an alternative, at least.</string>
     <!-- END ERROR STRINGS -->
 
     <!-- STRINGS DIALOG FRAGMENT -->

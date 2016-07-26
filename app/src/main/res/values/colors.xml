@@ -7,4 +7,5 @@
     <color name="colorText">#FFE5E5E5</color>
     <color name="colorTextActionBarTitle">#FFFFFFFF</color>
     <color name="colorDivider">#cecdcb</color>
+    <color name="colorAnswer">#FF38CC8F</color>
 </resources>
