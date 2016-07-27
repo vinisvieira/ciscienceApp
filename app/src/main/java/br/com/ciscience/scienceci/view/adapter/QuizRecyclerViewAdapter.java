@@ -76,7 +76,13 @@ public class QuizRecyclerViewAdapter extends RecyclerView.Adapter<QuizRecyclerVi
             switch (view.getId()) {
                 case R.id.buttonAnswer:
                     String questionJSON = new Gson().toJson(mQuiz.get(getLayoutPosition()).getQuestions());
-                    mContext.startActivity(new Intent(mContext, QuestionActivity.class).putExtra(Constants.INTENT_KEY_QUESTION, questionJSON));
+                    String quizJSON = new Gson().toJson(mQuiz.get(getLayoutPosition()));
+
+                    Intent intent = new Intent(mContext, QuestionActivity.class);
+                    intent.putExtra(Constants.INTENT_KEY_QUESTION, questionJSON);
+                    intent.putExtra(Constants.INTENT_KEY_QUIZ, quizJSON);
+
+                    mContext.startActivity(intent);
                     break;
             }
         }

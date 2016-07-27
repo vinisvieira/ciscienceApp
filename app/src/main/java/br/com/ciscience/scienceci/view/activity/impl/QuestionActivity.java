@@ -9,14 +9,17 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 import java.util.Locale;
@@ -25,6 +28,7 @@ import java.util.concurrent.TimeUnit;
 import br.com.ciscience.scienceci.R;
 import br.com.ciscience.scienceci.model.entity.impl.Alternative;
 import br.com.ciscience.scienceci.model.entity.impl.Question;
+import br.com.ciscience.scienceci.model.entity.impl.Quiz;
 import br.com.ciscience.scienceci.util.Constants;
 import br.com.ciscience.scienceci.view.activity.IActivity;
 import br.com.ciscience.scienceci.view.activity.IQuestionView;
@@ -39,6 +43,7 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
     Toolbar toolbar;
 
     @BindView(R.id.textViewTimerContent) TextView textViewTimerContent;
+    @BindView(R.id.imageViewQuestion) ImageView imageViewQuestion;
     @BindView(R.id.textViewPointsContent) TextView textViewPointsContent;
     @BindView(R.id.textViewQuestionText) TextView textViewQuestionText;
     @BindView(R.id.recyclerViewQuestionAlternatives) RecyclerView recyclerViewQuestionAlternatives;
@@ -47,6 +52,7 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
     @BindView(R.id.buttonNextQuestion) Button buttonNextQuestion;
     @BindView(R.id.buttonFinishQuiz) Button buttonFinishQuiz;
 
+    private Quiz mQuiz;
     private List<Question> questions;
     private int currentQuestionIndex = 0;
     private CountDownTimer countDownTimer;
@@ -115,7 +121,9 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
     public void getQuestions() {
         Intent intent = getIntent();
         String questionsJSON = intent.getStringExtra(Constants.INTENT_KEY_QUESTION);
+        String quizJSON = intent.getStringExtra(Constants.INTENT_KEY_QUIZ);
         this.questions = new Gson().fromJson(questionsJSON, new TypeToken<List<Question>>(){}.getType());
+        this.mQuiz = new Gson().fromJson(quizJSON, Quiz.class);
         currentQuestionIndex = (this.questions.size() - 1);
         showQuestionOnUI(questions.get(currentQuestionIndex));
     }
@@ -159,7 +167,13 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
 
     @Override
     public void completeQuiz() {
+        Log.d(Constants.DEBUG_KEY, "Quiz ID -> " + this.mQuiz.getId() + ", Quiz Name -> " + this.mQuiz.getName());
+        Log.d(Constants.DEBUG_KEY, "Total Score -> " + this.mAlternativeRecyclerViewAdapter.getCumulativePoints());
+        Intent intent = new Intent(QuestionActivity.this, QuizResult.class);
+        intent.putExtra(Constants.INTENT_KEY_QUIZ, new Gson().toJson(this.mQuiz));
+        intent.putExtra(Constants.INTENT_TOTAL_POINTS, this.mAlternativeRecyclerViewAdapter.getCumulativePoints());
 
+        startActivity(intent);
     }
 
     @Override
@@ -205,6 +219,14 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
         showAnswerButton();
         textViewPointsContent.setText(String.valueOf(question.getScore()));
         textViewQuestionText.setText(question.getText());
+
+        if (question.getMyFile().getName() != null) {
+            Picasso
+                    .with(QuestionActivity.this)
+                    .load(Constants.BASE_URL + "datafile/" + question.getMyFile().getName())
+                    .into(imageViewQuestion);
+        }
+
         showAlternativesOnUI(question.getAlternatives());
         loadQuestionsOnMemory(questions);
     }
@@ -241,6 +263,7 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
                 callNextQuestion();
                 break;
             case R.id.buttonFinishQuiz:
+                completeQuiz();
                 break;
         }
     }

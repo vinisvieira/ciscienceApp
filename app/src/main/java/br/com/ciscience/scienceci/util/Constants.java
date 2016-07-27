@@ -16,6 +16,8 @@ public class Constants {
     public static final int LOGOUT_DIALOG_FRAGMENT = 0;
 
     // EXTRA KEYS
-    public static final String INTENT_KEY_QUESTION = "ikq";
+    public static final String INTENT_KEY_QUESTION = "ikquestions";
+    public static final String INTENT_KEY_QUIZ = "ikquiz";
+    public static final String INTENT_TOTAL_POINTS = "itp";
 
 }

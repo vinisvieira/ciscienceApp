@@ -3,8 +3,11 @@ package br.com.ciscience.scienceci.model.dao.remote;
 import java.util.List;
 
 import br.com.ciscience.scienceci.model.entity.impl.Quiz;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import rx.Observable;
 
@@ -20,5 +23,12 @@ public interface IQuizRemoteAPI {
 
     @GET("quiz/{quiz_id}")
     Observable<Quiz> getQuiz(@Path("quiz_id") Long id);
+
+
+    @FormUrlEncoded
+    @POST("quizstudent")
+    Observable<Void> sendQuizResults(
+            @Field("quizStudent") String quizStudent,
+            @Header("token") String token);
 
 }
