@@ -12,6 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import br.com.ciscience.scienceci.R;
 import br.com.ciscience.scienceci.model.entity.impl.Student;
@@ -23,9 +27,11 @@ import br.com.ciscience.scienceci.view.activity.IActivity;
 import br.com.ciscience.scienceci.view.fragment.IDialog;
 import br.com.ciscience.scienceci.view.fragment.IUserView;
 import br.com.ciscience.scienceci.view.fragment.impl.QuizFragment;
+import br.com.ciscience.scienceci.view.fragment.impl.RankingFragment;
 import br.com.ciscience.scienceci.view.fragment.impl.StudentLogoutDialog;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements IActivity, IUserView, IDialog, NavigationView.OnNavigationItemSelectedListener {
 
@@ -76,6 +82,21 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
                 new Handler().postDelayed(this::closeDrawerMenu, 120);
                 break;
 
+            case Constants.RANKING_FRAGMENT:
+                if (!this.isCurrentOnDisplay(Constants.RANKING_FRAGMENT)) {
+                    this.mCurrentFragment = Constants.RANKING_FRAGMENT;
+
+                    this.setCheckedItemNavigationView(Constants.RANKING_FRAGMENT);
+
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, new RankingFragment())
+                            .commit();
+                    SystemServices.changeToolbarTitle(MainActivity.this, getResources().getString(R.string.drawer_menu_ranking));
+                }
+                new Handler().postDelayed(this::closeDrawerMenu, 120);
+                break;
+
             case Constants.LOGOUT_DIALOG_FRAGMENT:
                 this.closeDrawerMenu();
                 this.mAppCompatDialogFragment = new StudentLogoutDialog();
@@ -110,6 +131,19 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
         this.navigationView.inflateMenu(R.menu.menu_drawer_layout);
         this.navigationView.setNavigationItemSelectedListener(this);
 
+        View headerView = this.navigationView.getHeaderView(0);
+
+        TextView mStudentName = (TextView) headerView.findViewById(R.id.text_view_student_name);
+        CircleImageView circleImageViewStudentPicture = (CircleImageView) headerView.findViewById(R.id.circleImageViewProfile);
+        mStudentName.setText(this.mIUserPresenter.getSession().getName());
+
+        if (this.mIUserPresenter.getSession().getMyFile() != null) {
+            Picasso
+                    .with(MainActivity.this)
+                    .load(Constants.BASE_URL + Constants.DATAFILE_URL + this.mIUserPresenter.getSession().getMyFile().getName())
+                    .into(circleImageViewStudentPicture);
+        }
+
         this.showFragment(Constants.QUIZ_FRAGMENT);
     }
 
@@ -124,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
             case R.id.drawer_menu_rules:
                 return true;
             case R.id.drawer_menu_ranking:
+                this.showFragment(Constants.RANKING_FRAGMENT);
                 return true;
             case R.id.drawer_menu_contact:
                 return true;

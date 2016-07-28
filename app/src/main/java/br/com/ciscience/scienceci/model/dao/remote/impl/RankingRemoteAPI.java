@@ -1,6 +1,6 @@
 package br.com.ciscience.scienceci.model.dao.remote.impl;
 
-import br.com.ciscience.scienceci.model.dao.remote.IQuizRemoteAPI;
+import br.com.ciscience.scienceci.model.dao.remote.IRankingRemoteAPI;
 import br.com.ciscience.scienceci.util.Constants;
 import br.com.ciscience.scienceci.util.MyOkHttpClient;
 import retrofit2.Retrofit;
@@ -8,14 +8,14 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by pedrodimoura on 15/06/16.
+ * Created by pedrodimoura on 28/07/16.
  */
-public class QuizRemoteAPI {
+public class RankingRemoteAPI {
 
-    private static QuizRemoteAPI sInstance;
-    private IQuizRemoteAPI mIQuizRemoteAPI;
+    private static RankingRemoteAPI sInstance;
+    private IRankingRemoteAPI mIRankingRemoteAPI;
 
-    private QuizRemoteAPI() {
+    private RankingRemoteAPI() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .client(MyOkHttpClient.getOkHttpClient())
@@ -23,20 +23,22 @@ public class QuizRemoteAPI {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 
-        this.mIQuizRemoteAPI = retrofit.create(IQuizRemoteAPI.class);
+        this.mIRankingRemoteAPI = retrofit.create(IRankingRemoteAPI.class);
     }
 
-    public static QuizRemoteAPI getInstance() {
+    public static RankingRemoteAPI getInstance() {
         if (sInstance == null) {
-            synchronized (QuizRemoteAPI.class) {
-                if (sInstance == null) sInstance = new QuizRemoteAPI();
+            synchronized (RankingRemoteAPI.class) {
+                if (sInstance == null) {
+                    sInstance = new RankingRemoteAPI();
+                }
             }
         }
         return sInstance;
     }
 
-    public IQuizRemoteAPI getAPI() {
-        return this.mIQuizRemoteAPI;
+    public IRankingRemoteAPI getAPI() {
+        return this.mIRankingRemoteAPI;
     }
 
 }

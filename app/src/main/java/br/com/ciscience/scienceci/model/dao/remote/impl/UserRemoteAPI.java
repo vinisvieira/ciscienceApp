@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 
 import br.com.ciscience.scienceci.model.dao.remote.IUserRemoteAPI;
 import br.com.ciscience.scienceci.util.Constants;
+import br.com.ciscience.scienceci.util.MyOkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -20,6 +21,7 @@ public class UserRemoteAPI {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
+                .client(MyOkHttpClient.getOkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();

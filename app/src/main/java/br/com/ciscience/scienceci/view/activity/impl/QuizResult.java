@@ -3,6 +3,9 @@ package br.com.ciscience.scienceci.view.activity.impl;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,10 +20,13 @@ import br.com.ciscience.scienceci.util.Constants;
 import br.com.ciscience.scienceci.view.activity.IQuizResultView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class QuizResult extends AppCompatActivity implements IQuizResultView {
+public class QuizResult extends AppCompatActivity implements IQuizResultView, View.OnClickListener {
 
+    @BindView(R.id.progressBarQuizResult) ProgressBar progressBarQuizResult;
     @BindView(R.id.textViewPointsEarned) TextView textViewPointsEarned;
+    @BindView(R.id.buttonBackHome) Button buttonBackHome;
 
     private Quiz mQuiz;
     private int mTotalPoints;
@@ -48,6 +54,26 @@ public class QuizResult extends AppCompatActivity implements IQuizResultView {
     }
 
     @Override
+    public void showButton() {
+        this.buttonBackHome.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideButton() {
+        this.buttonBackHome.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showProgressBar() {
+        this.progressBarQuizResult.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        this.progressBarQuizResult.setVisibility(View.GONE);
+    }
+
+    @Override
     public void sendQuizResults() {
         QuizStudent quizStudent = new QuizStudent();
         quizStudent.setQuiz(this.mQuiz);
@@ -70,5 +96,15 @@ public class QuizResult extends AppCompatActivity implements IQuizResultView {
     @Override
     public Activity getActivityContext() {
         return QuizResult.this;
+    }
+
+    @OnClick({R.id.buttonBackHome})
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.buttonBackHome:
+                finish();
+                break;
+        }
     }
 }

@@ -1,13 +1,14 @@
 package br.com.ciscience.scienceci.view.fragment.impl;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,12 +66,13 @@ public class QuizFragment extends Fragment implements IFragment, IQuizView, Swip
                 R.color.colorAccent);
         this.swipeRefreshLayoutQuiz.setOnRefreshListener(this);
         this.recyclerViewQuiz.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        this.mQuizRecyclerViewAdapter = new QuizRecyclerViewAdapter(getFragmentActivity());
+        this.mQuizRecyclerViewAdapter = new QuizRecyclerViewAdapter(QuizFragment.this);
         this.recyclerViewQuiz.setAdapter(this.mQuizRecyclerViewAdapter);
     }
 
     @Override
     public void loadAvaiableQuiz() {
+        this.mQuizRecyclerViewAdapter.clear();
         this.mIQuizPresenter.loadAvaiableQuiz();
     }
 
@@ -81,7 +83,7 @@ public class QuizFragment extends Fragment implements IFragment, IQuizView, Swip
 
     @Override
     public void showRefresh() {
-        this.swipeRefreshLayoutQuiz.setRefreshing(true);
+        this.swipeRefreshLayoutQuiz.post(() -> this.swipeRefreshLayoutQuiz.setRefreshing(true));
     }
 
     @Override
@@ -102,25 +104,21 @@ public class QuizFragment extends Fragment implements IFragment, IQuizView, Swip
     @Override
     public void showNetworkError() {
         this.relativeLayoutNetworkError.setVisibility(View.VISIBLE);
-        Log.d(Constants.DEBUG_KEY, "showNetworkError");
     }
 
     @Override
     public void hideNetworkError() {
         this.relativeLayoutNetworkError.setVisibility(View.GONE);
-        Log.d(Constants.DEBUG_KEY, "hideNetworkError");
     }
 
     @Override
     public void showEmptyQuiz() {
         this.relativeLayoutEmptyQuiz.setVisibility(View.VISIBLE);
-        Log.d(Constants.DEBUG_KEY, "showEmptyQuiz");
     }
 
     @Override
     public void hideEmptyQuiz() {
         this.relativeLayoutEmptyQuiz.setVisibility(View.GONE);
-        Log.d(Constants.DEBUG_KEY, "hideEmptyQuiz");
     }
 
     @Override
@@ -134,6 +132,11 @@ public class QuizFragment extends Fragment implements IFragment, IQuizView, Swip
     }
 
     @Override
+    public void startActivityQuizForResult(Intent intent, int resultCode) {
+        this.startActivityForResult(intent, resultCode);
+    }
+
+    @Override
     public Activity getFragmentActivity() {
         return getActivity();
     }
@@ -141,5 +144,19 @@ public class QuizFragment extends Fragment implements IFragment, IQuizView, Swip
     @Override
     public void onRefresh() {
         this.swipeRefreshLayoutQuiz.post(this::showRefresh);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case Constants.RESULT_QUIZ:
+                switch (resultCode) {
+                    case AppCompatActivity.RESULT_OK:
+                        loadAvaiableQuiz();
+                        break;
+                }
+                break;
+        }
     }
 }

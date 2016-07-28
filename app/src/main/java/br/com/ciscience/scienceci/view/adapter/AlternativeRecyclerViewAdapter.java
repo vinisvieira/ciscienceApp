@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import br.com.ciscience.scienceci.R;
 import br.com.ciscience.scienceci.model.entity.impl.Alternative;
+import br.com.ciscience.scienceci.util.Constants;
 import br.com.ciscience.scienceci.view.activity.IQuestionView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -75,6 +77,7 @@ public class AlternativeRecyclerViewAdapter extends RecyclerView.Adapter<Alterna
     public void onBindViewHolder(AlternativeViewHolder holder, int position) {
         holder.setIsRecyclable(false);
 
+        Log.d(Constants.DEBUG_KEY, "ALTERNATIVA -> " + this.mAlternatives.get(position).getText());
         holder.radioButton.setText(this.mAlternatives.get(position).getText());
         holder.radioButton.setTextColor(ContextCompat.getColor(holder.radioButton.getContext(), R.color.colorText));
         holder.radioButton.setTag(position);

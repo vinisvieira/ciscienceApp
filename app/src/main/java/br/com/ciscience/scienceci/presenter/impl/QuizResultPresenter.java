@@ -9,6 +9,7 @@ import br.com.ciscience.scienceci.model.dao.remote.impl.QuizRemoteAPI;
 import br.com.ciscience.scienceci.presenter.IQuizResultPresenter;
 import br.com.ciscience.scienceci.util.Constants;
 import br.com.ciscience.scienceci.view.activity.IQuizResultView;
+import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
@@ -33,6 +34,8 @@ public class QuizResultPresenter implements IQuizResultPresenter {
 
     @Override
     public void sendQuizResult(String quizResultJSON) {
+        this.mIQuizResultView.hideButton();
+        this.mIQuizResultView.showProgressBar();
         this.mCompositeSubscription
                 .add(
                         this.mQuizRemoteAPI
@@ -40,11 +43,24 @@ public class QuizResultPresenter implements IQuizResultPresenter {
                                 .sendQuizResults(quizResultJSON, this.mUserLocalAPI.getSession().getToken())
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(
-                                        next -> Log.d(Constants.DEBUG_KEY, "onNext -> " + next),
-                                        throwable -> mIQuizResultView.showToastMessage(throwable.getMessage(), Toast.LENGTH_LONG),
-                                        () -> mIQuizResultView.showToastMessage(R.string.success_quiz_result, Toast.LENGTH_LONG)
-                                )
+                                .subscribe(new Observer<Void>() {
+                                    @Override
+                                    public void onCompleted() {
+                                        mIQuizResultView.showToastMessage(R.string.success_quiz_result, Toast.LENGTH_LONG);
+                                        mIQuizResultView.hideProgressBar();
+                                        mIQuizResultView.showButton();
+                                    }
+
+                                    @Override
+                                    public void onError(Throwable e) {
+                                        mIQuizResultView.showToastMessage(e.getMessage(), Toast.LENGTH_LONG);
+                                    }
+
+                                    @Override
+                                    public void onNext(Void aVoid) {
+                                        Log.d(Constants.DEBUG_KEY, "onNext -> " + aVoid);
+                                    }
+                                })
                 );
     }
 }

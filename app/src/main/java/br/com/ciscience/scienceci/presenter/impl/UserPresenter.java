@@ -55,7 +55,7 @@ public class UserPresenter implements IUserPresenter {
                                     @Override
                                     public void onError(Throwable e) {
                                         hideProgressBar();
-                                        Log.d(Constants.DEBUG_KEY, "onError -> " + e.getMessage());
+                                        Log.e(Constants.DEBUG_KEY, "onError -> " + e.getMessage(), e);
                                         showSnackbarMessage(getFragmentActivity().getString(R.string.error_invalid_login), Snackbar.LENGTH_LONG);
                                     }
 

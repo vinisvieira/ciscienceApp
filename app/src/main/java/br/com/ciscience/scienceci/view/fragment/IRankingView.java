@@ -1,18 +1,17 @@
 package br.com.ciscience.scienceci.view.fragment;
 
 import android.app.Activity;
-import android.content.Intent;
 
-import br.com.ciscience.scienceci.model.entity.impl.Quiz;
+import br.com.ciscience.scienceci.model.entity.impl.Student;
 
 /**
- * Created by pedrodimoura on 07/07/16.
+ * Created by pedrodimoura on 28/07/16.
  */
-public interface IQuizView {
+public interface IRankingView {
 
-    void loadAvaiableQuiz();
+    void loadRanking();
 
-    void showQuizOnUI(Quiz quiz);
+    void showRankingOnUI(Student student);
 
     void showRefresh();
 
@@ -26,15 +25,13 @@ public interface IQuizView {
 
     void hideNetworkError();
 
-    void showEmptyQuiz();
+    void showEmptyRanking();
 
-    void hideEmptyQuiz();
+    void hideEmptyRanking();
 
     void showSnackbarMessage(String message, int duration);
 
     void showSnackbarMessage(int resId, int duration);
-
-    void startActivityQuizForResult(Intent intent, int resultCode);
 
     Activity getFragmentActivity();
 

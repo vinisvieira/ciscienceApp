@@ -9,7 +9,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -167,13 +166,13 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
 
     @Override
     public void completeQuiz() {
-        Log.d(Constants.DEBUG_KEY, "Quiz ID -> " + this.mQuiz.getId() + ", Quiz Name -> " + this.mQuiz.getName());
-        Log.d(Constants.DEBUG_KEY, "Total Score -> " + this.mAlternativeRecyclerViewAdapter.getCumulativePoints());
         Intent intent = new Intent(QuestionActivity.this, QuizResult.class);
         intent.putExtra(Constants.INTENT_KEY_QUIZ, new Gson().toJson(this.mQuiz));
         intent.putExtra(Constants.INTENT_TOTAL_POINTS, this.mAlternativeRecyclerViewAdapter.getCumulativePoints());
 
+        setResult(AppCompatActivity.RESULT_OK);
         startActivity(intent);
+        finish();
     }
 
     @Override

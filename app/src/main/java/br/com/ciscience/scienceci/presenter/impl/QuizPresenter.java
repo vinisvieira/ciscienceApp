@@ -39,9 +39,9 @@ public class QuizPresenter implements IQuizPresenter {
     @Override
     public void loadAvaiableQuiz() {
         this.mIQuizView.showRefresh();
+        this.mIQuizView.showRootLayout();
         this.mIQuizView.hideNetworkError();
         this.mIQuizView.hideEmptyQuiz();
-        this.mIQuizView.showRootLayout();
         this.mCompositeSubscription
                 .add(
                         this.mQuizRemoteAPI

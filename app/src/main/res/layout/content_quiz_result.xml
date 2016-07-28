@@ -8,6 +8,13 @@
     tools:context=".view.activity.impl.QuizResult"
     tools:showIn="@layout/activity_quiz_result">
 
+    <ProgressBar
+        android:id="@+id/progressBarQuizResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_centerHorizontal="true"/>
+
     <ImageView
         android:id="@+id/imageViewTrophy"
         android:layout_width="match_parent"
@@ -53,6 +60,7 @@
         android:textSize="30sp"/>
 
     <Button
+        android:id="@+id/buttonBackHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

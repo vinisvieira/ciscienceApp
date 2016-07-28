@@ -1,6 +1,5 @@
 package br.com.ciscience.scienceci.view.adapter;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,6 +16,7 @@ import br.com.ciscience.scienceci.R;
 import br.com.ciscience.scienceci.model.entity.impl.Quiz;
 import br.com.ciscience.scienceci.util.Constants;
 import br.com.ciscience.scienceci.view.activity.impl.QuestionActivity;
+import br.com.ciscience.scienceci.view.fragment.IQuizView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -26,17 +26,22 @@ import butterknife.OnClick;
  */
 public class QuizRecyclerViewAdapter extends RecyclerView.Adapter<QuizRecyclerViewAdapter.QuizViewHolder> {
 
-    private Context mContext;
+    private IQuizView mIQuizView;
     private List<Quiz> mQuiz;
 
-    public QuizRecyclerViewAdapter(Context context) {
-        this.mContext = context;
+    public QuizRecyclerViewAdapter(IQuizView iQuizView) {
+        this.mIQuizView = iQuizView;
         if (this.mQuiz == null ) this.mQuiz = new ArrayList<>();
     }
 
     public void addQuiz(Quiz quiz) {
         this.mQuiz.add(quiz);
         this.notifyDataSetChanged();
+    }
+
+    public void clear() {
+        this.mQuiz.clear();
+        notifyDataSetChanged();
     }
 
     @Override
@@ -78,11 +83,11 @@ public class QuizRecyclerViewAdapter extends RecyclerView.Adapter<QuizRecyclerVi
                     String questionJSON = new Gson().toJson(mQuiz.get(getLayoutPosition()).getQuestions());
                     String quizJSON = new Gson().toJson(mQuiz.get(getLayoutPosition()));
 
-                    Intent intent = new Intent(mContext, QuestionActivity.class);
+                    Intent intent = new Intent(mIQuizView.getFragmentActivity(), QuestionActivity.class);
                     intent.putExtra(Constants.INTENT_KEY_QUESTION, questionJSON);
                     intent.putExtra(Constants.INTENT_KEY_QUIZ, quizJSON);
 
-                    mContext.startActivity(intent);
+                    mIQuizView.startActivityQuizForResult(intent, Constants.RESULT_QUIZ);
                     break;
             }
         }

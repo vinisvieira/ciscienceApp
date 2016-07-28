@@ -11,6 +11,7 @@ public class Student extends User implements IEntity {
 
     private List<Quiz> quiz;
     private Long score;
+    private MyFile myFile;
     private String token;
 
     public List<Quiz> getQuiz() {
@@ -27,6 +28,18 @@ public class Student extends User implements IEntity {
 
     public void setScore(Long score) {
         this.score = score;
+    }
+
+    public MyFile getMyFile() {
+        return myFile;
+    }
+
+    public void setMyFile(MyFile myFile) {
+        this.myFile = myFile;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getToken() {

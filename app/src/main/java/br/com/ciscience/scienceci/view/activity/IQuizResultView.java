@@ -7,6 +7,14 @@ import android.app.Activity;
  */
 public interface IQuizResultView {
 
+    void showButton();
+
+    void hideButton();
+
+    void showProgressBar();
+
+    void hideProgressBar();
+
     void sendQuizResults();
 
     void showToastMessage(String message, int duration);
