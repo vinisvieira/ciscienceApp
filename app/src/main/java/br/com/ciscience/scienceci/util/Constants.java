@@ -12,9 +12,14 @@ public class Constants {
     // DEBUG KEY
     public static final String DEBUG_KEY = "sciencecidebugkey";
 
+    // App's Package
+    public static final String GOOGLE_MAPS_PACKAGE = "com.google.android.apps.maps";
+
     // FRAGMENT STRINGS
     public static final int QUIZ_FRAGMENT = 1;
     public static final int RANKING_FRAGMENT = 2;
+    public static final int CONTACT_FRAGMENT = 3;
+    public static final int RULES_FRAGMENT = 4;
     public static final int LOGOUT_DIALOG_FRAGMENT = 0;
 
     // EXTRA KEYS

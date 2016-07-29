@@ -69,33 +69,32 @@ public class RankingRecyclerViewAdapter extends RecyclerView.Adapter<RankingRecy
     }
 
     public int getDrawable(int score) {
-        switch (score) {
-            case 25:
-                return R.drawable.b1;
-            case 35:
-                return R.drawable.b2;
-            case 45:
-                return R.drawable.b3;
-            case 50:
-                return R.drawable.b4;
-            case 100:
-                return R.drawable.p1;
-            case 140:
-                return R.drawable.p2;
-            case 180:
-                return R.drawable.p3;
-            case 220:
-                return R.drawable.p4;
-            case 250:
-                return R.drawable.o1;
-            case 300:
-                return R.drawable.o2;
-            case 400:
-                return R.drawable.o3;
-            case 500:
-                return R.drawable.o4;
-            default:
-                return R.drawable.b1;
+        if (score <= 25 && score < 35) {
+            return R.drawable.b1;
+        } else if (score >= 35 && score < 45) {
+            return R.drawable.b2;
+        } else if (score >= 45 && score < 50) {
+            return R.drawable.b3;
+        } else if (score >= 50 && score < 100) {
+            return R.drawable.b4;
+        } else if (score >= 100 && score < 140) {
+            return R.drawable.p1;
+        } else if (score >= 140 && score < 180) {
+            return R.drawable.p2;
+        } else if (score >= 180 && score < 220) {
+            return R.drawable.p3;
+        } else if (score >= 220 && score < 250) {
+            return R.drawable.p4;
+        } else if (score >= 250 && score < 300) {
+            return R.drawable.o1;
+        } else if (score >= 300 && score < 400) {
+            return R.drawable.o2;
+        } else if (score >= 400 && score < 500) {
+            return R.drawable.o3;
+        } else if (score >= 500) {
+            return R.drawable.o4;
+        } else {
+            return R.drawable.b1;
         }
     }
 

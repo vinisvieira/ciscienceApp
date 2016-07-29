@@ -3,15 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/activity_vertical_margin"
-    android:layout_marginBottom="@dimen/activity_vertical_margin">
+    android:padding="@dimen/activity_horizontal_margin"
+    android:background="@color/colorBackground">
 
     <RadioButton
         android:id="@+id/radioButtonAlternative"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textViewAlternative"
-        android:layout_alignBottom="@+id/textViewAlternative"
         android:layout_marginLeft="@dimen/activity_item_horizontal_margin"
         android:layout_marginStart="@dimen/activity_item_horizontal_margin"
         android:layout_marginRight="@dimen/activity_item_horizontal_margin"
@@ -24,8 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/radioButtonAlternative"
         android:layout_toEndOf="@+id/radioButtonAlternative"
+        android:gravity="center_vertical"
         android:singleLine="false"
-        android:maxLines="50"
-        android:textColor="@color/colorText"/>
+        android:textColor="@color/colorText"
+        android:textSize="18sp"/>
 
 </RelativeLayout>

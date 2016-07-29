@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/activity_vertical_margin"
-    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:padding="@dimen/activity_horizontal_margin"
     android:background="@color/colorBackground">
 
     <ImageView
@@ -22,13 +21,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageViewBadge"
-        android:layout_alignBottom="@+id/imageViewBadge"
         android:layout_toRightOf="@+id/imageViewBadge"
         android:layout_toEndOf="@+id/imageViewBadge"
         android:gravity="center_vertical"
         android:singleLine="false"
         android:maxLines="50"
         android:textColor="@color/colorText"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:text="lasdkfçlsa asçdfk çsdfkl açsdfk açsldfk çaslkfd çalsdk fçaslkf "/>
 
 </RelativeLayout>

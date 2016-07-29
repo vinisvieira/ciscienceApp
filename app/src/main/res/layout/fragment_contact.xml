@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:background="@color/colorBackground">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageViewEmail"
+            android:layout_width="180dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_email_big_white"/>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/activity_vertical_margin"
+            android:gravity="center"
+            android:layout_below="@+id/imageViewEmail">
+
+            <Button
+                android:id="@+id/buttonSendEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/text_view_email_address"
+                style="@style/AppTheme.NoActionBar.ButtonLogInScreen"/>
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageViewPhone"
+            android:layout_width="180dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/relativeLayoutEmail"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_call_white"/>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/activity_vertical_margin"
+            android:gravity="center"
+            android:layout_below="@+id/imageViewPhone">
+
+            <Button
+                android:id="@+id/buttonMakePhoneCall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/text_view_phone_number"
+                style="@style/AppTheme.NoActionBar.ButtonLogInScreen"/>
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageViewNavigateOnMaps"
+            android:layout_width="180dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/relativeLayoutPhone"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_place_white"/>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutMaps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/activity_vertical_margin"
+            android:gravity="center"
+            android:layout_below="@+id/imageViewNavigateOnMaps">
+
+            <Button
+                android:id="@+id/buttonNavigateOnMaps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/text_view_navigate_on_maps"
+                style="@style/AppTheme.NoActionBar.ButtonLogInScreen"/>
+
+
+        </RelativeLayout>
+        
+    </RelativeLayout>
+
+</ScrollView>

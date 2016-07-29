@@ -6,6 +6,8 @@
 
     <!-- STRING UTIL -->
     <string name="debug_key">sciencecidebugkey</string>
+    <string name="latitude">-8.273965</string>
+    <string name="longitude">-35.965900</string>
     <!-- END STRING UTIL -->
 
     <!-- BUTTON STRINGS -->
@@ -23,6 +25,24 @@
     <string name="text_view_question_points">Points</string>
     <string name="text_view_you_earned">YOU EARNED</string>
     <string name="text_view_you_earned_points">+ POINTS</string>
+    <string name="text_view_contact">Contact</string>
+    <string name="text_view_email">Email:</string>
+    <string name="text_view_email_address">contato@scienceresultado.com</string>
+    <string name="text_view_phone_number">(81) 3136&#8211;7368</string>
+    <string name="text_view_navigate_on_maps">Navigate on Google Maps</string>
+    <string name="text_view_choose_email">Choose an email client:</string>
+    <string name="text_view_rule_one">1. The objective of SCIENCE CHALLENGE is to help students to train the resolution of issues in a competitive and dynamic.</string>
+    <string name="text_view_rule_two">2. When creating your account and participate in the resolution of issues you agree to participate in the public disclosure of the Ranking.</string>
+    <string name="text_view_rule_three">3. If you prefer, you can put a nickname instead of your real name and a photo that does not identify you.</string>
+    <string name="text_view_rule_four">4. Para participar você tem que estar devidamente matriculado no preparatório para o TJ do Science.</string>
+    <string name="text_view_rule_five">5. A competição se inicia no dia 08 de agosto e dura 50 dias. Dela participam os alunos do TJ Regular, TJ intensivo e Coaching.</string>
+    <string name="text_view_rule_six">6. Every day will be sent 10 multiple choice questions with timer, with set time due to the difficulty. The student must answer daily questions to get a good position in the Ranking.</string>
+    <string name="text_view_rule_seven">7. Ranking is updated every day and is structured according to the number of correct answers students.</string>
+    <string name="text_view_rule_eight">8. Ranking will be published on the Science site during the lessons and on the Facebook page.</string>
+    <string name="text_view_rule_nine">9. The award will be announced before the start of the competition on the Facebook page.</string>
+    <string name="text_view_rule_ten">10. In case of a tie for first place, there will be an competition among those tied. The winner will receive the prize.</string>
+
+
     <!-- END TEXTVIEW STRINGS -->
 
     <!-- HINT STRINGS -->
@@ -45,6 +65,10 @@
     <string name="error_empty_fields">Required fields are empty! Try again</string>
     <string name="error_network_processing">Error during the network process. Try again!</string>
     <string name="error_no_alternative_selected">Select an alternative, at least.</string>
+    <!-- END ERROR STRINGS -->
+
+    <!-- WARNING STRINGS -->
+    <string name="warning_exit">You cannot leave yet!</string>
     <!-- END ERROR STRINGS -->
 
     <!-- END SUCCESS STRINGS -->

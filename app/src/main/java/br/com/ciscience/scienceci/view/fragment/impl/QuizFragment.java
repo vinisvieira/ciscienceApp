@@ -143,7 +143,7 @@ public class QuizFragment extends Fragment implements IFragment, IQuizView, Swip
 
     @Override
     public void onRefresh() {
-        this.swipeRefreshLayoutQuiz.post(this::showRefresh);
+        loadAvaiableQuiz();
     }
 
     @Override

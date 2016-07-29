@@ -44,7 +44,7 @@ public class RankingPresenter implements IRankingPresenter {
                                 .getRanking(this.mUserLocalAPI.getSession().getToken())
                                 .subscribeOn(Schedulers.io())
                                 .take(10)
-                                .flatMap(student -> Observable.from(student))
+                                .concatMap(student -> Observable.from(student))
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(new Observer<Student>() {
                                     @Override

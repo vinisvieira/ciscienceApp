@@ -9,7 +9,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -29,6 +30,7 @@ import br.com.ciscience.scienceci.model.entity.impl.Alternative;
 import br.com.ciscience.scienceci.model.entity.impl.Question;
 import br.com.ciscience.scienceci.model.entity.impl.Quiz;
 import br.com.ciscience.scienceci.util.Constants;
+import br.com.ciscience.scienceci.util.SystemServices;
 import br.com.ciscience.scienceci.view.activity.IActivity;
 import br.com.ciscience.scienceci.view.activity.IQuestionView;
 import br.com.ciscience.scienceci.view.adapter.AlternativeRecyclerViewAdapter;
@@ -57,6 +59,8 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
     private CountDownTimer countDownTimer;
     private AlternativeRecyclerViewAdapter mAlternativeRecyclerViewAdapter;
 
+    private int mOnPauseCount = 0;
+
     private static final String TIMER_FORMAT = "%02d:%02d";
 
     @Override
@@ -68,6 +72,35 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
         setRecyclerViewDefault();
         getQuestions();
         setActionBarDrawerToggle();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (Integer.parseInt(android.os.Build.VERSION.SDK) > 5
+                && keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            Log.d("CDA", "onKeyDown Called");
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (this.mOnPauseCount > 0) completeQuiz();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        this.mOnPauseCount++;
+    }
+
+    @Override
+    public void onBackPressed() {
+        showToastMessage(R.string.warning_exit, Toast.LENGTH_SHORT);
     }
 
     public void setRecyclerViewDefault() {
@@ -87,8 +120,7 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
 
     @Override
     public void setActionBarDrawerToggle() {
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override
@@ -107,22 +139,13 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public void getQuestions() {
         Intent intent = getIntent();
         String questionsJSON = intent.getStringExtra(Constants.INTENT_KEY_QUESTION);
         String quizJSON = intent.getStringExtra(Constants.INTENT_KEY_QUIZ);
         this.questions = new Gson().fromJson(questionsJSON, new TypeToken<List<Question>>(){}.getType());
         this.mQuiz = new Gson().fromJson(quizJSON, Quiz.class);
+        SystemServices.changeToolbarTitle(QuestionActivity.this, this.mQuiz.getName());
         currentQuestionIndex = (this.questions.size() - 1);
         showQuestionOnUI(questions.get(currentQuestionIndex));
     }

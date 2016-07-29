@@ -26,8 +26,10 @@ import br.com.ciscience.scienceci.util.SystemServices;
 import br.com.ciscience.scienceci.view.activity.IActivity;
 import br.com.ciscience.scienceci.view.fragment.IDialog;
 import br.com.ciscience.scienceci.view.fragment.IUserView;
+import br.com.ciscience.scienceci.view.fragment.impl.ContactFragment;
 import br.com.ciscience.scienceci.view.fragment.impl.QuizFragment;
 import br.com.ciscience.scienceci.view.fragment.impl.RankingFragment;
+import br.com.ciscience.scienceci.view.fragment.impl.RulesFragment;
 import br.com.ciscience.scienceci.view.fragment.impl.StudentLogoutDialog;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -97,6 +99,36 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
                 new Handler().postDelayed(this::closeDrawerMenu, 120);
                 break;
 
+            case Constants.CONTACT_FRAGMENT:
+                if (!this.isCurrentOnDisplay(Constants.CONTACT_FRAGMENT)) {
+                    this.mCurrentFragment = Constants.CONTACT_FRAGMENT;
+
+                    this.setCheckedItemNavigationView(Constants.CONTACT_FRAGMENT);
+
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, new ContactFragment())
+                            .commit();
+                    SystemServices.changeToolbarTitle(MainActivity.this, getResources().getString(R.string.drawer_menu_contact));
+                }
+                new Handler().postDelayed(this::closeDrawerMenu, 120);
+                break;
+
+            case Constants.RULES_FRAGMENT:
+                if (!this.isCurrentOnDisplay(Constants.RULES_FRAGMENT)) {
+                    this.mCurrentFragment = Constants.RULES_FRAGMENT;
+
+                    this.setCheckedItemNavigationView(Constants.RULES_FRAGMENT);
+
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, new RulesFragment())
+                            .commit();
+                    SystemServices.changeToolbarTitle(MainActivity.this, getResources().getString(R.string.drawer_menu_rules));
+                }
+                new Handler().postDelayed(this::closeDrawerMenu, 120);
+                break;
+
             case Constants.LOGOUT_DIALOG_FRAGMENT:
                 this.closeDrawerMenu();
                 this.mAppCompatDialogFragment = new StudentLogoutDialog();
@@ -156,11 +188,13 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
             case R.id.drawer_menu_profile:
                 return true;
             case R.id.drawer_menu_rules:
+                this.showFragment(Constants.RULES_FRAGMENT);
                 return true;
             case R.id.drawer_menu_ranking:
                 this.showFragment(Constants.RANKING_FRAGMENT);
                 return true;
             case R.id.drawer_menu_contact:
+                this.showFragment(Constants.CONTACT_FRAGMENT);
                 return true;
             case R.id.drawer_menu_logout:
                 this.showFragment(Constants.LOGOUT_DIALOG_FRAGMENT);
