@@ -2,7 +2,6 @@ package br.com.ciscience.scienceci.presenter.impl;
 
 import android.app.Activity;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 
 import br.com.ciscience.scienceci.R;
 import br.com.ciscience.scienceci.model.dao.local.IUserLocalAPI;
@@ -10,7 +9,6 @@ import br.com.ciscience.scienceci.model.dao.local.impl.UserLocalAPI;
 import br.com.ciscience.scienceci.model.dao.remote.impl.UserRemoteAPI;
 import br.com.ciscience.scienceci.model.entity.impl.Student;
 import br.com.ciscience.scienceci.presenter.IUserPresenter;
-import br.com.ciscience.scienceci.util.Constants;
 import br.com.ciscience.scienceci.view.fragment.IUserView;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -55,13 +53,43 @@ public class UserPresenter implements IUserPresenter {
                                     @Override
                                     public void onError(Throwable e) {
                                         hideProgressBar();
-                                        Log.e(Constants.DEBUG_KEY, "onError -> " + e.getMessage(), e);
                                         showSnackbarMessage(getFragmentActivity().getString(R.string.error_invalid_login), Snackbar.LENGTH_LONG);
                                     }
 
                                     @Override
                                     public void onNext(Student student) {
                                         mIUserLocalAPI.setSession(student);
+                                    }
+                                })
+                );
+    }
+
+    @Override
+    public void recoveryPassword(String email, String recoveryKey) {
+        this.mIUserView.showProgressBar();
+        this.mCompositeSubscription
+                .add(
+                        this.mUserRemoteAPI
+                                .getAPI()
+                                .recoveryPassword(email, recoveryKey)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(new Observer<Void>() {
+                                    @Override
+                                    public void onCompleted() {
+                                        hideProgressBar();
+                                        mIUserView.showSnackbarMessage(R.string.success_recovery_password, Snackbar.LENGTH_LONG);
+                                    }
+
+                                    @Override
+                                    public void onError(Throwable e) {
+                                        hideProgressBar();
+                                        mIUserView.showSnackbarMessage(R.string.error_recovery_password, Snackbar.LENGTH_LONG);
+                                    }
+
+                                    @Override
+                                    public void onNext(Void aVoid) {
+
                                     }
                                 })
                 );

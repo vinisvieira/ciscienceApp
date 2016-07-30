@@ -15,6 +15,9 @@ public class Constants {
     // App's Package
     public static final String GOOGLE_MAPS_PACKAGE = "com.google.android.apps.maps";
 
+    // Recovery Key
+    public static final String RECOVERY_KEY = "332ec4e3e4722932f5a93c16c3dacb389892783d";
+
     // FRAGMENT STRINGS
     public static final int QUIZ_FRAGMENT = 1;
     public static final int RANKING_FRAGMENT = 2;

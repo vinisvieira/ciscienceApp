@@ -9,7 +9,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -59,7 +58,7 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
     private CountDownTimer countDownTimer;
     private AlternativeRecyclerViewAdapter mAlternativeRecyclerViewAdapter;
 
-    private int mOnPauseCount = 0;
+    private boolean mQuizComplete;
 
     private static final String TIMER_FORMAT = "%02d:%02d";
 
@@ -79,7 +78,6 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
         if (Integer.parseInt(android.os.Build.VERSION.SDK) > 5
                 && keyCode == KeyEvent.KEYCODE_BACK
                 && event.getRepeatCount() == 0) {
-            Log.d("CDA", "onKeyDown Called");
             onBackPressed();
             return true;
         }
@@ -87,15 +85,14 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        if (this.mOnPauseCount > 0) completeQuiz();
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        this.mOnPauseCount++;
+    protected void onStop() {
+        super.onStop();
+        if (!this.mQuizComplete) completeQuiz();
     }
 
     @Override
@@ -189,6 +186,7 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
 
     @Override
     public void completeQuiz() {
+        this.mQuizComplete = true;
         Intent intent = new Intent(QuestionActivity.this, QuizResult.class);
         intent.putExtra(Constants.INTENT_KEY_QUIZ, new Gson().toJson(this.mQuiz));
         intent.putExtra(Constants.INTENT_TOTAL_POINTS, this.mAlternativeRecyclerViewAdapter.getCumulativePoints());

@@ -63,6 +63,7 @@ public class RankingFragment extends Fragment implements IFragment, IRankingView
 
     @Override
     public void loadRanking() {
+        this.mRankingRecyclerViewAdapter.clear();
         this.mIRankingPresenter.getRanking();
     }
 
@@ -128,6 +129,6 @@ public class RankingFragment extends Fragment implements IFragment, IRankingView
 
     @Override
     public void onRefresh() {
-
+        loadRanking();
     }
 }

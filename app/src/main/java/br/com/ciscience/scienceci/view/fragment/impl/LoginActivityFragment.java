@@ -16,6 +16,7 @@ import br.com.ciscience.scienceci.R;
 import br.com.ciscience.scienceci.model.entity.impl.Student;
 import br.com.ciscience.scienceci.presenter.IUserPresenter;
 import br.com.ciscience.scienceci.presenter.impl.UserPresenter;
+import br.com.ciscience.scienceci.util.Constants;
 import br.com.ciscience.scienceci.view.activity.impl.MainActivity;
 import br.com.ciscience.scienceci.view.fragment.IUserView;
 import butterknife.BindString;
@@ -54,12 +55,15 @@ public class LoginActivityFragment extends Fragment implements IUserView, View.O
         this.userLoggedIn();
     }
 
-    @OnClick({R.id.buttonLogin})
+    @OnClick({R.id.buttonLogin, R.id.textViewRecoveryPassword})
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonLogin:
                 this.login();
+                break;
+            case R.id.textViewRecoveryPassword:
+                this.recoveryPassword();
                 break;
         }
     }
@@ -91,6 +95,17 @@ public class LoginActivityFragment extends Fragment implements IUserView, View.O
             this.showSnackbarMessage(R.string.error_empty_fields, Snackbar.LENGTH_LONG);
         }
 
+    }
+
+    @Override
+    public void recoveryPassword() {
+        String email = this.textInputEditTextEmail.getText().toString();
+
+        if (!email.trim().equals("")) {
+            this.mIUserPresenter.recoveryPassword(email, Constants.RECOVERY_KEY);
+        } else {
+            showSnackbarMessage(R.string.error_empty_fields, Snackbar.LENGTH_LONG);
+        }
     }
 
     @Override

@@ -15,6 +15,8 @@ public interface IUserView {
 
     void login();
 
+    void recoveryPassword();
+
     void showProgressBar();
 
     void hideProgressBar();

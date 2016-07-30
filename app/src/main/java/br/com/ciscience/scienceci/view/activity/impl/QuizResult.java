@@ -50,7 +50,7 @@ public class QuizResult extends AppCompatActivity implements IQuizResultView, Vi
     }
 
     private void showPointsOnUI() {
-        this.textViewPointsEarned.setText(String.valueOf(this.mTotalPoints));
+        this.textViewPointsEarned.setText(String.valueOf(this.mTotalPoints) + getString(R.string.text_view_you_earned_points));
     }
 
     @Override

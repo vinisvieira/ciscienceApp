@@ -1,0 +1,93 @@
+<resources>
+
+    <string name="app_name">Science CI</string>
+    <string name="action_settings">Configurações</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_question">Question Activity</string>
+    <string name="title_activity_quiz_result">Quiz Result</string>
+
+    <!-- STRING UTIL -->
+    <string name="debug_key">sciencecidebugkey</string>
+    <string name="latitude">-8.273965</string>
+    <string name="longitude">-35.965900</string>
+    <!-- END STRING UTIL -->
+
+    <!-- BUTTON STRINGS -->
+    <string name="button_login">Login</string>
+    <string name="button_answer">Responder</string>
+    <string name="button_next_question">Próxima Questão</string>
+    <string name="button_finish_quiz">Finalizar Quiz</string>
+    <string name="button_back_home">VOLTAR PARA O INÍCIO</string>
+    <!-- END BUTTON STRINGS -->
+
+    <!-- TEXTVIEW STRINGS -->
+    <string name="text_view_recovery_password">Esqueceu sua senha?</string>
+    <string name="text_view_no_quiz_avaiable">Nenhum quiz disponível até agora.</string>
+    <string name="text_view_question_timer">Tempo</string>
+    <string name="text_view_question_points">Pontos</string>
+    <string name="text_view_you_earned">VOCÊ GANHOU</string>
+    <string name="text_view_you_earned_points">+ PONTOS</string>
+    <string name="text_view_contact">Contato</string>
+    <string name="text_view_email">E-mail:</string>
+    <string name="text_view_email_address">contato@scienceresultado.com</string>
+    <string name="text_view_phone_number">(81) 3136&#8211;7368</string>
+    <string name="text_view_navigate_on_maps">Navegar no Google Maps</string>
+    <string name="text_view_choose_email">Escolhe um app:</string>
+    <string name="text_view_rule_one">1. O objetivo do DESAFIO SCIENCE é ajudar os alunos a treinar a resolução de questões, de uma forma competitiva e dinâmica.</string>
+    <string name="text_view_rule_two">2. Ao criar sua conta e ao participar da resolução de questões você aceita participar da divulgação pública do Ranking.</string>
+    <string name="text_view_rule_three">3. Se você preferir, pode colocar um nick no lugar de seu nome real e uma foto que não te identifique.</string>
+    <string name="text_view_rule_four">4. Para participar você tem que estar devidamente matriculado no preparatório para o TJ do Science.</string>
+    <string name="text_view_rule_five">5. A competição se inicia no dia 08 de agosto e dura 50 dias. Dela participam os alunos do TJ Regular, TJ intensivo e Coaching.</string>
+    <string name="text_view_rule_six">6. A cada dia serão enviadas 10 questões de múltipla escolha com cronômetro, com tempo definido em função da dificuldade. O aluno deverá diariamente responder as questões para obter uma boa colocação no Ranking.</string>
+    <string name="text_view_rule_seven">7. O Ranking é atualizado todos os dias e é estruturado de acordo com o número de acertos dos alunos.</string>
+    <string name="text_view_rule_eight">8. O Ranking será divulgado no site do Science, durante as aulas e na página do Facebook.</string>
+    <string name="text_view_rule_nine">9. A premiação será divulgada antes do início da competição na página do Facebook.</string>
+    <string name="text_view_rule_ten">10. Em caso de empate no primeiro lugar, será feita uma minicompetição entre os que empataram. O vencedor receberá o prêmio.</string>
+
+
+    <!-- END TEXTVIEW STRINGS -->
+
+    <!-- HINT STRINGS -->
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Senha</string>
+    <string name="text_view_quiz_contest">Concurso</string>
+    <!-- END HINT STRINGS -->
+
+    <!-- MENU DRAWER STRINGS -->
+    <string name="drawer_menu_quiz">Quiz</string>
+    <string name="drawer_menu_profile">Meu Perfil</string>
+    <string name="drawer_menu_rules">Regras</string>
+    <string name="drawer_menu_ranking">Ranking</string>
+    <string name="drawer_menu_contact">Contato</string>
+    <string name="drawer_menu_logout">Logout</string>
+    <!-- END MENU DRAWER STRINGS -->
+
+    <!-- ERROR STRINGS -->
+    <string name="error_invalid_login">Login inválido! Tente novamente</string>
+    <string name="error_empty_fields">Preencha corretamente os campos obrigatórios</string>
+    <string name="error_empty_field_email">Digite um e-mail válido</string>
+    <string name="error_network_processing">A internet não ajudou nessa requisição :( Tenta novamente!</string>
+    <string name="error_no_alternative_selected">Ops! Seleciona pelo menos uma alternativa!</string>
+    <string name="error_recovery_password">Não encontramos uma conta com o e-mail informado</string>
+    <!-- END ERROR STRINGS -->
+
+    <!-- WARNING STRINGS -->
+    <string name="warning_exit">Ops! Você não pode sair ainda</string>
+    <string name="success_recovery_password">Uma nova senha foi enviada ao e-mail que você informou.</string>
+    <!-- END ERROR STRINGS -->
+
+    <!-- END SUCCESS STRINGS -->
+    <string name="success_quiz_result">Sua pontuação está segura, agora! :D</string>
+    <!-- END SUCCESS STRINGS -->
+
+    <!-- STRINGS DIALOG FRAGMENT -->
+    <string name="logout_dialog_title">Logout</string>
+    <string name="logout_dialog_message">Você deseja sair, realmente? :(</string>
+    <string name="logout_dialog_positive_button">Sim</string>
+    <string name="logout_dialog_negative_button">Nem pensar!</string>
+    <!-- END STRINGS DIALOG FRAGMENT -->
+
+    <!-- FAKE STRINGS -->
+    <string name="fake_student_name">Lisa Rose Snow</string>
+    <!-- END FAKE STRINGS -->
+</resources>

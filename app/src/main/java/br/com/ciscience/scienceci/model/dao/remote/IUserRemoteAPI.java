@@ -3,6 +3,7 @@ package br.com.ciscience.scienceci.model.dao.remote;
 import br.com.ciscience.scienceci.model.entity.impl.Student;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import rx.Observable;
 
@@ -16,6 +17,13 @@ public interface IUserRemoteAPI {
     Observable<Student> login(
             @Field("email") String email,
             @Field("password") String password
+    );
+
+    @FormUrlEncoded
+    @POST("student/recovery")
+    Observable<Void> recoveryPassword(
+            @Field("email") String email,
+            @Header("recoveryKey") String recoveryKey
     );
 
 }

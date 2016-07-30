@@ -1,13 +1,11 @@
 package br.com.ciscience.scienceci.presenter.impl;
 
-import android.util.Log;
 import android.widget.Toast;
 
 import br.com.ciscience.scienceci.R;
 import br.com.ciscience.scienceci.model.dao.local.impl.UserLocalAPI;
 import br.com.ciscience.scienceci.model.dao.remote.impl.QuizRemoteAPI;
 import br.com.ciscience.scienceci.presenter.IQuizResultPresenter;
-import br.com.ciscience.scienceci.util.Constants;
 import br.com.ciscience.scienceci.view.activity.IQuizResultView;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -58,7 +56,7 @@ public class QuizResultPresenter implements IQuizResultPresenter {
 
                                     @Override
                                     public void onNext(Void aVoid) {
-                                        Log.d(Constants.DEBUG_KEY, "onNext -> " + aVoid);
+
                                     }
                                 })
                 );

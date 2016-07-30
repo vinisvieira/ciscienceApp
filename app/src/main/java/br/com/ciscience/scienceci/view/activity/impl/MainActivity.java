@@ -185,8 +185,8 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
             case R.id.drawer_menu_quiz:
                 this.showFragment(Constants.QUIZ_FRAGMENT);
                 return true;
-            case R.id.drawer_menu_profile:
-                return true;
+//            case R.id.drawer_menu_profile:
+//                return true;
             case R.id.drawer_menu_rules:
                 this.showFragment(Constants.RULES_FRAGMENT);
                 return true;
@@ -229,6 +229,11 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
 
     @Override
     public void login() {
+
+    }
+
+    @Override
+    public void recoveryPassword() {
 
     }
 

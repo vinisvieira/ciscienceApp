@@ -55,7 +55,6 @@ public class RankingPresenter implements IRankingPresenter {
                                     @Override
                                     public void onError(Throwable e) {
                                         mIRankingView.hideRefresh();
-                                        Log.e(Constants.DEBUG_KEY, e.getMessage(), e);
                                         mIRankingView.showSnackbarMessage(R.string.error_network_processing, Snackbar.LENGTH_LONG);
                                     }
 
