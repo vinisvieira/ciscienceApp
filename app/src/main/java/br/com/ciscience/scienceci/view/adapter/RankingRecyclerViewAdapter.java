@@ -57,11 +57,9 @@ public class RankingRecyclerViewAdapter extends RecyclerView.Adapter<RankingRecy
             Picasso
                     .with(this.mContext)
                     .load(R.drawable.lead)
-                    .into(holder.circleImageViewBadge);
+                    .into(holder.imageViewBadge);
         } else {
-            Picasso.with(this.mContext)
-                    .load(getDrawable(this.mStudents.get(position).getScore().intValue()))
-                    .into(holder.circleImageViewBadge);
+            holder.textViewPosition.setText(String.valueOf((position + 1)));
         }
 
         holder.textViewRanking.setText(this.mStudents.get(position).getName());
@@ -105,7 +103,8 @@ public class RankingRecyclerViewAdapter extends RecyclerView.Adapter<RankingRecy
 
     public class RankingViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.imageViewBadge) ImageView circleImageViewBadge;
+        @BindView(R.id.imageViewBadge) ImageView imageViewBadge;
+        @BindView(R.id.textViewPosition) TextView textViewPosition;
         @BindView(R.id.textViewRanking) TextView textViewRanking;
 
         public RankingViewHolder(View itemView) {

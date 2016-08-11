@@ -43,6 +43,9 @@
     <string name="text_view_rule_eight">8. Ranking will be published on the Science site during the lessons and on the Facebook page.</string>
     <string name="text_view_rule_nine">9. The award will be announced before the start of the competition on the Facebook page.</string>
     <string name="text_view_rule_ten">10. In case of a tie for first place, there will be an competition among those tied. The winner will receive the prize.</string>
+    <string name="text_view_rule_eleven">11. If you exit the application while resolving issues you automatically lose the score of the questions that day.</string>
+    <string name="text_view_rule_twelve">12. You received medals (bronze, silver, gold) throughout the competition and every medal has four levels (I, II, III, IV) that evolve depending on the number of correct answers.</string>
+    <string name="text_view_rule_thirteen">13. The first place in the ranking will receive the Medal of the Crown</string>
     <string name="text_view_tech_problem">Tech Problems? Contact us!</string>
     <string name="text_view_science_contact">Contact Science Resultado</string>
 

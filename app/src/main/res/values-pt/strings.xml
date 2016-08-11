@@ -43,6 +43,9 @@
     <string name="text_view_rule_eight">8. O Ranking será divulgado no site do Science, durante as aulas e na página do Facebook.</string>
     <string name="text_view_rule_nine">9. A premiação será divulgada antes do início da competição na página do Facebook.</string>
     <string name="text_view_rule_ten">10. Em caso de empate no primeiro lugar, será feita uma minicompetição entre os que empataram. O vencedor receberá o prêmio.</string>
+    <string name="text_view_rule_eleven">11. Caso você saia do aplicativo durante a resolução de questões, automaticamente a pontuação conquistada será totalmente perdida.</string>
+    <string name="text_view_rule_twelve">12. Você receberá medalhas (bronze, prata, ouro) ao longo da competição e  cada medalha possui quatro níveis (I, II, III, IV) que vão evoluindo em função do número das respostas corretas.</string>
+    <string name="text_view_rule_thirteen">13. Quem estiver em primeiro lugar no Ranking receberá a Medalha da Coroa.</string>
     <string name="text_view_tech_problem">Problemas técnicos? Entre em contato!</string>
     <string name="text_view_science_contact">Ligue para o Science Resultado</string>
 

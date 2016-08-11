@@ -14,20 +14,32 @@
         android:layout_marginStart="@dimen/activity_item_horizontal_margin"
         android:layout_marginRight="@dimen/activity_item_horizontal_margin"
         android:layout_marginEnd="@dimen/activity_item_horizontal_margin"
-        android:src="@drawable/lead"/>
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/textViewPosition"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/activity_item_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_item_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_item_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_item_horizontal_margin"
+        android:gravity="center_horizontal|center_vertical"
+        android:textColor="@color/colorText"
+        android:textSize="24sp"/>
 
     <TextView
         android:id="@+id/textViewRanking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageViewBadge"
-        android:layout_toRightOf="@+id/imageViewBadge"
-        android:layout_toEndOf="@+id/imageViewBadge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/textViewPosition"
+        android:layout_toRightOf="@+id/textViewPosition"
+        android:layout_toEndOf="@+id/textViewPosition"
+        android:layout_alignBottom="@+id/textViewPosition"
         android:gravity="center_vertical"
-        android:singleLine="false"
-        android:maxLines="50"
+        android:singleLine="true"
+        android:ellipsize="end"
         android:textColor="@color/colorText"
-        android:textSize="18sp"
-        android:text="lasdkfçlsa asçdfk çsdfkl açsdfk açsldfk çaslkfd çalsdk fçaslkf "/>
+        android:textSize="18sp"/>
 
 </RelativeLayout>

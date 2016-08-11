@@ -39,4 +39,14 @@
         android:text="@string/fake_student_name"
         style="@style/AppTheme.NoActionBar.TextViewHeaderLayout"/>
 
+
+    <ImageView
+        android:id="@+id/imageViewBadge"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginStart="@dimen/activity_vertical_margin"
+        android:layout_centerVertical="true"
+        android:src="@drawable/lead" />
+
 </RelativeLayout>

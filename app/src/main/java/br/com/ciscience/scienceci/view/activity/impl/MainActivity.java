@@ -11,9 +11,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -184,10 +184,8 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
 
         TextView mStudentName = (TextView) headerView.findViewById(R.id.text_view_student_name);
         CircleImageView circleImageViewStudentPicture = (CircleImageView) headerView.findViewById(R.id.circleImageViewProfile);
+        ImageView imageViewBadge = (ImageView) headerView.findViewById(R.id.imageViewBadge);
         mStudentName.setText(this.mIUserPresenter.getSession().getName());
-
-        Log.d(Constants.DEBUG_KEY, "Aluno Email -> " + this.mIUserPresenter.getSession().getEmail());
-        Log.d(Constants.DEBUG_KEY, "Aluno Nome -> " + this.mIUserPresenter.getSession().getName());
 
         if (this.mIUserPresenter.getSession().getMyFile() != null) {
             Picasso
@@ -196,7 +194,41 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
                     .into(circleImageViewStudentPicture);
         }
 
+        Picasso.with(MainActivity.this)
+                .load(getResDrawable(this.mIUserPresenter.getSession().getScore().intValue()))
+                .into(imageViewBadge);
+
         this.showFragment(Constants.QUIZ_FRAGMENT);
+    }
+
+    public int getResDrawable(int score) {
+        if (score <= 25 && score < 35) {
+            return R.drawable.b1;
+        } else if (score >= 35 && score < 45) {
+            return R.drawable.b2;
+        } else if (score >= 45 && score < 50) {
+            return R.drawable.b3;
+        } else if (score >= 50 && score < 100) {
+            return R.drawable.b4;
+        } else if (score >= 100 && score < 140) {
+            return R.drawable.p1;
+        } else if (score >= 140 && score < 180) {
+            return R.drawable.p2;
+        } else if (score >= 180 && score < 220) {
+            return R.drawable.p3;
+        } else if (score >= 220 && score < 250) {
+            return R.drawable.p4;
+        } else if (score >= 250 && score < 300) {
+            return R.drawable.o1;
+        } else if (score >= 300 && score < 400) {
+            return R.drawable.o2;
+        } else if (score >= 400 && score < 500) {
+            return R.drawable.o3;
+        } else if (score >= 500) {
+            return R.drawable.o4;
+        } else {
+            return R.drawable.b1;
+        }
     }
 
     @Override
