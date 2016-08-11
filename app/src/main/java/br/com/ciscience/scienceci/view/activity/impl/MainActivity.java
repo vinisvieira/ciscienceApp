@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -55,6 +56,22 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
         setSupportActionBar(toolbar);
         setActionBarDrawerToggle();
         loadDefaultMenu();
+    }
+
+    private void syncDrawerMenu() {
+        if (!this.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            this.drawerLayout.openDrawer(GravityCompat.START);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                syncDrawerMenu();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void closeDrawerMenu() {
@@ -168,6 +185,9 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
         TextView mStudentName = (TextView) headerView.findViewById(R.id.text_view_student_name);
         CircleImageView circleImageViewStudentPicture = (CircleImageView) headerView.findViewById(R.id.circleImageViewProfile);
         mStudentName.setText(this.mIUserPresenter.getSession().getName());
+
+        Log.d(Constants.DEBUG_KEY, "Aluno Email -> " + this.mIUserPresenter.getSession().getEmail());
+        Log.d(Constants.DEBUG_KEY, "Aluno Nome -> " + this.mIUserPresenter.getSession().getName());
 
         if (this.mIUserPresenter.getSession().getMyFile() != null) {
             Picasso

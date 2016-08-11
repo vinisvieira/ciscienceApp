@@ -29,7 +29,7 @@
     <string name="text_view_you_earned_points">+ POINTS</string>
     <string name="text_view_contact">Contact</string>
     <string name="text_view_email">Email:</string>
-    <string name="text_view_email_address">contato@scienceresultado.com</string>
+    <string name="text_view_email_address">tech@scienceresultado.com</string>
     <string name="text_view_phone_number">(81) 3136&#8211;7368</string>
     <string name="text_view_navigate_on_maps">Navigate on Google Maps</string>
     <string name="text_view_choose_email">Choose an email client:</string>
@@ -43,7 +43,8 @@
     <string name="text_view_rule_eight">8. Ranking will be published on the Science site during the lessons and on the Facebook page.</string>
     <string name="text_view_rule_nine">9. The award will be announced before the start of the competition on the Facebook page.</string>
     <string name="text_view_rule_ten">10. In case of a tie for first place, there will be an competition among those tied. The winner will receive the prize.</string>
-
+    <string name="text_view_tech_problem">Tech Problems? Contact us!</string>
+    <string name="text_view_science_contact">Contact Science Resultado</string>
 
     <!-- END TEXTVIEW STRINGS -->
 

@@ -6,14 +6,12 @@ package br.com.ciscience.scienceci.util;
 public class Constants {
 
     // URL's
-    public static final String BASE_URL = "http://scienceresultado.com.br/api/";
+//    public static final String BASE_URL = "http://scienceresultado.com.br/api/";
+    public static final String BASE_URL = "http://10.0.3.2:8080/ciscience/api/";
     public static final String DATAFILE_URL = "datafile/";
 
     // DEBUG KEY
     public static final String DEBUG_KEY = "sciencecidebugkey";
-
-    // App's Package
-    public static final String GOOGLE_MAPS_PACKAGE = "com.google.android.apps.maps";
 
     // Recovery Key
     public static final String RECOVERY_KEY = "332ec4e3e4722932f5a93c16c3dacb389892783d";

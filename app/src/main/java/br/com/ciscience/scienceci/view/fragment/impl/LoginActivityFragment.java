@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,8 +72,8 @@ public class LoginActivityFragment extends Fragment implements IUserView, View.O
     @Override
     public void userLoggedIn() {
         if (this.getSession() != null) {
-            this.finishActivity();
-            this.startMainActivity();
+            Log.d(Constants.DEBUG_KEY, "User is Logged -> " + this.getSession().getToken());
+            this.mIUserPresenter.getRemoteSession(this.getSession().getToken());
         } else {
             this.hideProgressBar();
         }

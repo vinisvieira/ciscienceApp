@@ -51,6 +51,7 @@ public class Student extends User implements IEntity {
         return "Student{" +
                 "quiz=" + quiz +
                 ", score=" + score +
+                ", myFile=" + myFile +
                 ", token='" + token + '\'' +
                 '}';
     }

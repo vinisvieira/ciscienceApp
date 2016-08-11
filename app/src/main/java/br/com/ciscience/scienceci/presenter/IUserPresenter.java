@@ -11,6 +11,8 @@ public interface IUserPresenter {
 
     void login(Student student);
 
+    void getRemoteSession(String token);
+
     void recoveryPassword(String email, String recoveryKey);
 
     void destroySession();

@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import br.com.ciscience.scienceci.R;
-import br.com.ciscience.scienceci.util.Constants;
-import br.com.ciscience.scienceci.util.SystemServices;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -35,7 +33,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    @OnClick({R.id.buttonSendEmail, R.id.buttonMakePhoneCall, R.id.buttonNavigateOnMaps})
+    @OnClick({R.id.buttonSendEmail, R.id.buttonMakePhoneCall})
     @Override
     public void onClick(View view) {
         Intent intent;
@@ -51,17 +49,6 @@ public class ContactFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.buttonMakePhoneCall:
                 startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + getString(R.string.text_view_phone_number))));
-                break;
-            case R.id.buttonNavigateOnMaps:
-                if (SystemServices.isPackageInstalled(Constants.GOOGLE_MAPS_PACKAGE, getActivity())) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + getString(R.string.latitude) + "," + getString(R.string.longitude) + "&mode=d")).setPackage(Constants.GOOGLE_MAPS_PACKAGE));
-                } else {
-                    try {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Constants.GOOGLE_MAPS_PACKAGE)));
-                    } catch (android.content.ActivityNotFoundException anfe) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + Constants.GOOGLE_MAPS_PACKAGE)));
-                    }
-                }
                 break;
         }
     }

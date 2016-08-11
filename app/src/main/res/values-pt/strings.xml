@@ -29,7 +29,7 @@
     <string name="text_view_you_earned_points">+ PONTOS</string>
     <string name="text_view_contact">Contato</string>
     <string name="text_view_email">E-mail:</string>
-    <string name="text_view_email_address">contato@scienceresultado.com</string>
+    <string name="text_view_email_address">tech@scienceresultado.com</string>
     <string name="text_view_phone_number">(81) 3136&#8211;7368</string>
     <string name="text_view_navigate_on_maps">Navegar no Google Maps</string>
     <string name="text_view_choose_email">Escolhe um app:</string>
@@ -43,7 +43,8 @@
     <string name="text_view_rule_eight">8. O Ranking será divulgado no site do Science, durante as aulas e na página do Facebook.</string>
     <string name="text_view_rule_nine">9. A premiação será divulgada antes do início da competição na página do Facebook.</string>
     <string name="text_view_rule_ten">10. Em caso de empate no primeiro lugar, será feita uma minicompetição entre os que empataram. O vencedor receberá o prêmio.</string>
-
+    <string name="text_view_tech_problem">Problemas técnicos? Entre em contato!</string>
+    <string name="text_view_science_contact">Ligue para o Science Resultado</string>
 
     <!-- END TEXTVIEW STRINGS -->
 

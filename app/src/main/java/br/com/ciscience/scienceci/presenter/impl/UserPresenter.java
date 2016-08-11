@@ -2,6 +2,7 @@ package br.com.ciscience.scienceci.presenter.impl;
 
 import android.app.Activity;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 
 import br.com.ciscience.scienceci.R;
 import br.com.ciscience.scienceci.model.dao.local.IUserLocalAPI;
@@ -9,6 +10,7 @@ import br.com.ciscience.scienceci.model.dao.local.impl.UserLocalAPI;
 import br.com.ciscience.scienceci.model.dao.remote.impl.UserRemoteAPI;
 import br.com.ciscience.scienceci.model.entity.impl.Student;
 import br.com.ciscience.scienceci.presenter.IUserPresenter;
+import br.com.ciscience.scienceci.util.Constants;
 import br.com.ciscience.scienceci.view.fragment.IUserView;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -53,6 +55,7 @@ public class UserPresenter implements IUserPresenter {
                                     @Override
                                     public void onError(Throwable e) {
                                         hideProgressBar();
+                                        Log.e(Constants.DEBUG_KEY, e.getMessage(), e);
                                         showSnackbarMessage(getFragmentActivity().getString(R.string.error_invalid_login), Snackbar.LENGTH_LONG);
                                     }
 
@@ -61,6 +64,31 @@ public class UserPresenter implements IUserPresenter {
                                         mIUserLocalAPI.setSession(student);
                                     }
                                 })
+                );
+    }
+
+    @Override
+    public void getRemoteSession(String token) {
+        this.mIUserView.showProgressBar();
+        this.mCompositeSubscription
+                .add(
+                        this.mUserRemoteAPI
+                                .getAPI()
+                                .getByToken(token)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(
+                                        mIUserLocalAPI::setSession,
+                                        throwable -> {
+                                            hideProgressBar();
+                                            Log.e(Constants.DEBUG_KEY, throwable.getMessage(), throwable);
+                                            showSnackbarMessage(getFragmentActivity().getString(R.string.error_network_processing), Snackbar.LENGTH_LONG);
+                                        },
+                                        () -> {
+                                            finishActivity();
+                                            startMainActivity();
+                                        }
+                                )
                 );
     }
 
