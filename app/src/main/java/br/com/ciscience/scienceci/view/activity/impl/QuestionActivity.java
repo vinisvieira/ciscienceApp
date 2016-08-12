@@ -155,10 +155,11 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
     @Override
     public void loadQuestionsOnMemory(List<Question> questions) {
 
-        this.countDownTimer = new CountDownTimer((questions.get(currentQuestionIndex).getLevel().getTime() * 1000), 1000) { // adjust the milli seconds here
+        this.countDownTimer = new CountDownTimer((questions.get(currentQuestionIndex).getLevel().getTime()) * 1000, 1000) { // adjust the milli seconds here
 
             public void onTick(long l) {
-                textViewTimerContent.setText(String.format(Locale.ENGLISH, TIMER_FORMAT, TimeUnit.MILLISECONDS.toMinutes(l), TimeUnit.MILLISECONDS.toSeconds(l)));
+                textViewTimerContent.setText(String.format(Locale.ENGLISH, TIMER_FORMAT, TimeUnit.MILLISECONDS.toMinutes(l),
+                        TimeUnit.MILLISECONDS.toSeconds(l) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(l))));
             }
 
             public void onFinish() {
