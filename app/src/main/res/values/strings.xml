@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">Science CI</string>
+    <string name="app_name">Science Resultado</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_question">QuestionActivity</string>
