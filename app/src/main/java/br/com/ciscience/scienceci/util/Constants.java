@@ -6,8 +6,8 @@ package br.com.ciscience.scienceci.util;
 public class Constants {
 
     // URL's
-    public static final String BASE_URL = "http://scienceresultado.com.br/api/";
-//    public static final String BASE_URL = "http://10.0.3.2:8080/ciscience/api/";
+//    public static final String BASE_URL = "http://scienceresultado.com.br/api/";
+    public static final String BASE_URL = "http://10.0.3.2:8080/ciscience/api/";
     public static final String DATAFILE_URL = "datafile/";
 
     // DEBUG KEY

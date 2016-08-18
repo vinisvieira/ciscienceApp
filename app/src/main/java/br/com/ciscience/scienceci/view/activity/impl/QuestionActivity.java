@@ -92,7 +92,7 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
     @Override
     protected void onStop() {
         super.onStop();
-        if (!this.mQuizComplete) completeQuiz();
+//        if (!this.mQuizComplete) completeQuiz();
     }
 
     @Override
@@ -270,7 +270,7 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        stopCountDownTimer();
+//        stopCountDownTimer();
     }
 
     @OnClick({R.id.buttonAnswer, R.id.buttonNextQuestion, R.id.buttonFinishQuiz})
