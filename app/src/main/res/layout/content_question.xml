@@ -98,11 +98,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/linearLayoutCounterPoint"
-        android:layout_above="@+id/buttonAnswer">
+        android:layout_above="@+id/buttonAnswer"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="top">
 
             <ImageView
                 android:id="@+id/imageViewQuestion"
@@ -134,7 +137,9 @@
                 android:id="@+id/recyclerViewQuestionAlternatives"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textViewQuestionText"/>
+                android:layout_below="@+id/textViewQuestionText"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"/>
 
         </RelativeLayout>
 

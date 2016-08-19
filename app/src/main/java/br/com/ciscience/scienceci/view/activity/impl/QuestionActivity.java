@@ -13,6 +13,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
     @BindView(R.id.imageViewQuestion) ImageView imageViewQuestion;
     @BindView(R.id.textViewPointsContent) TextView textViewPointsContent;
     @BindView(R.id.textViewQuestionText) TextView textViewQuestionText;
+    @BindView(R.id.scrollViewQuestion) ScrollView scrollViewQuestion;
     @BindView(R.id.recyclerViewQuestionAlternatives) RecyclerView recyclerViewQuestionAlternatives;
 
     @BindView(R.id.buttonAnswer) Button buttonAnswer;
@@ -107,6 +109,7 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
         } else {
             this.recyclerViewQuestionAlternatives.setLayoutManager(new GridLayoutManager(QuestionActivity.this, 2));
         }
+        this.recyclerViewQuestionAlternatives.setFocusable(false);
         this.recyclerViewQuestionAlternatives.setAdapter(this.mAlternativeRecyclerViewAdapter);
     }
 
@@ -255,6 +258,7 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
     @Override
     public void showAlternativesOnUI(List<Alternative> alternatives) {
         this.mAlternativeRecyclerViewAdapter.setAlternatives(alternatives);
+        this.scrollViewQuestion.fullScroll(ScrollView.FOCUS_UP);
     }
 
     @Override
