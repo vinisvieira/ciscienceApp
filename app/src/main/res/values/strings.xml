@@ -52,6 +52,7 @@
     <!-- END TEXTVIEW STRINGS -->
 
     <!-- HINT STRINGS -->
+    <string name="hint_name">Name</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="text_view_quiz_contest">Contest</string>

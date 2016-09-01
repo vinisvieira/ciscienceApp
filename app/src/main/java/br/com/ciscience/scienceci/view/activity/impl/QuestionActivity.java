@@ -249,6 +249,8 @@ public class QuestionActivity extends AppCompatActivity implements IActivity, IQ
                     .with(QuestionActivity.this)
                     .load(Constants.BASE_URL + "datafile/" + question.getMyFile().getName())
                     .into(imageViewQuestion);
+        } else {
+            imageViewQuestion.setImageResource(android.R.color.transparent);
         }
 
         showAlternativesOnUI(question.getAlternatives());

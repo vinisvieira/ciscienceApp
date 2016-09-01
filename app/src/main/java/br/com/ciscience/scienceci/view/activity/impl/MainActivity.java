@@ -28,6 +28,7 @@ import br.com.ciscience.scienceci.view.activity.IActivity;
 import br.com.ciscience.scienceci.view.fragment.IDialog;
 import br.com.ciscience.scienceci.view.fragment.IUserView;
 import br.com.ciscience.scienceci.view.fragment.impl.ContactFragment;
+import br.com.ciscience.scienceci.view.fragment.impl.ProfileFragment;
 import br.com.ciscience.scienceci.view.fragment.impl.QuizFragment;
 import br.com.ciscience.scienceci.view.fragment.impl.RankingFragment;
 import br.com.ciscience.scienceci.view.fragment.impl.RulesFragment;
@@ -101,6 +102,21 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
                 new Handler().postDelayed(this::closeDrawerMenu, 120);
                 break;
 
+            case Constants.PROFILE_FRAGMENT:
+                if (!this.isCurrentOnDisplay(Constants.PROFILE_FRAGMENT)) {
+                    this.mCurrentFragment = Constants.PROFILE_FRAGMENT;
+
+                    this.setCheckedItemNavigationView(Constants.PROFILE_FRAGMENT);
+
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, new ProfileFragment())
+                            .commit();
+                    SystemServices.changeToolbarTitle(MainActivity.this, getResources().getString(R.string.drawer_menu_profile));
+                }
+                new Handler().postDelayed(this::closeDrawerMenu, 120);
+                break;
+
             case Constants.RANKING_FRAGMENT:
                 if (!this.isCurrentOnDisplay(Constants.RANKING_FRAGMENT)) {
                     this.mCurrentFragment = Constants.RANKING_FRAGMENT;
@@ -167,7 +183,9 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
             case Constants.QUIZ_FRAGMENT:
                 this.navigationView.setCheckedItem(R.id.drawer_menu_quiz);
                 break;
-
+            case Constants.PROFILE_FRAGMENT:
+                this.navigationView.setCheckedItem(R.id.drawer_menu_profile);
+                break;
             case Constants.LOGOUT_DIALOG_FRAGMENT:
                 this.navigationView.setCheckedItem(R.id.drawer_menu_quiz);
                 break;
@@ -191,6 +209,8 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
             Picasso
                     .with(MainActivity.this)
                     .load(Constants.BASE_URL + Constants.DATAFILE_URL + this.mIUserPresenter.getSession().getMyFile().getName())
+                    .resize(1000, 1000)
+                    .onlyScaleDown()
                     .into(circleImageViewStudentPicture);
         }
 
@@ -237,8 +257,9 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
             case R.id.drawer_menu_quiz:
                 this.showFragment(Constants.QUIZ_FRAGMENT);
                 return true;
-//            case R.id.drawer_menu_profile:
-//                return true;
+            case R.id.drawer_menu_profile:
+                this.showFragment(Constants.PROFILE_FRAGMENT);
+                return true;
             case R.id.drawer_menu_rules:
                 this.showFragment(Constants.RULES_FRAGMENT);
                 return true;

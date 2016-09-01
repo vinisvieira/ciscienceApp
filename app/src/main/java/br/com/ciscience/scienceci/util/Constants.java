@@ -18,10 +18,11 @@ public class Constants {
 
     // FRAGMENT STRINGS
     public static final int QUIZ_FRAGMENT = 1;
-    public static final int RANKING_FRAGMENT = 2;
-    public static final int CONTACT_FRAGMENT = 3;
-    public static final int RULES_FRAGMENT = 4;
-    public static final int LOGOUT_DIALOG_FRAGMENT = 0;
+    public static final int PROFILE_FRAGMENT = 2;
+    public static final int RANKING_FRAGMENT = 3;
+    public static final int CONTACT_FRAGMENT = 4;
+    public static final int RULES_FRAGMENT = 5;
+    public static final int LOGOUT_DIALOG_FRAGMENT = 6;
 
     // EXTRA KEYS
     public static final String INTENT_KEY_QUESTION = "ikquestions";

@@ -12,6 +12,7 @@ import br.com.ciscience.scienceci.model.entity.impl.Student;
 import br.com.ciscience.scienceci.presenter.IUserPresenter;
 import br.com.ciscience.scienceci.util.Constants;
 import br.com.ciscience.scienceci.view.fragment.IUserView;
+import okhttp3.MultipartBody;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -62,6 +63,36 @@ public class UserPresenter implements IUserPresenter {
                                     @Override
                                     public void onNext(Student student) {
                                         mIUserLocalAPI.setSession(student);
+                                    }
+                                })
+                );
+    }
+
+    @Override
+    public void changeAvatar(MultipartBody.Part file, String token) {
+        this.mIUserView.showProgressBar();
+        this.mCompositeSubscription
+                .add(
+                        this.mUserRemoteAPI
+                                .getAPI()
+                                .changeAvatar(file, token)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(new Observer<Void>() {
+                                    @Override
+                                    public void onCompleted() {
+                                        Log.d(Constants.DEBUG_KEY, "onCompleted");
+                                        mIUserView.hideProgressBar();
+                                    }
+
+                                    @Override
+                                    public void onError(Throwable e) {
+                                        Log.d(Constants.DEBUG_KEY, "onError -> " + e.getMessage());
+                                    }
+
+                                    @Override
+                                    public void onNext(Void aVoid) {
+                                        Log.d(Constants.DEBUG_KEY, "onNext -> " + aVoid);
                                     }
                                 })
                 );

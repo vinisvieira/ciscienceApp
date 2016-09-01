@@ -52,7 +52,8 @@
     <!-- END TEXTVIEW STRINGS -->
 
     <!-- HINT STRINGS -->
-    <string name="hint_email">Email</string>
+    <string name="hint_name">Nome</string>
+    <string name="hint_email">E-mail</string>
     <string name="hint_password">Senha</string>
     <string name="text_view_quiz_contest">Concurso</string>
     <!-- END HINT STRINGS -->

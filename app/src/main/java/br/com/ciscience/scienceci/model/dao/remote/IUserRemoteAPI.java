@@ -1,11 +1,14 @@
 package br.com.ciscience.scienceci.model.dao.remote;
 
 import br.com.ciscience.scienceci.model.entity.impl.Student;
+import okhttp3.MultipartBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import rx.Observable;
 
 /**
@@ -30,6 +33,13 @@ public interface IUserRemoteAPI {
     Observable<Void> recoveryPassword(
             @Field("email") String email,
             @Header("recoveryKey") String recoveryKey
+    );
+
+    @Multipart
+    @POST("student/avatar/mobile")
+    Observable<Void> changeAvatar(
+            @Part MultipartBody.Part file,
+            @Field("token") String token
     );
 
 }

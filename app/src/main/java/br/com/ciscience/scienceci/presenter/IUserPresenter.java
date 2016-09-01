@@ -3,6 +3,7 @@ package br.com.ciscience.scienceci.presenter;
 import android.app.Activity;
 
 import br.com.ciscience.scienceci.model.entity.impl.Student;
+import okhttp3.MultipartBody;
 
 /**
  * Created by pedrodimoura on 19/07/16.
@@ -10,6 +11,8 @@ import br.com.ciscience.scienceci.model.entity.impl.Student;
 public interface IUserPresenter {
 
     void login(Student student);
+
+    void changeAvatar(MultipartBody.Part file, String token);
 
     void getRemoteSession(String token);
 
