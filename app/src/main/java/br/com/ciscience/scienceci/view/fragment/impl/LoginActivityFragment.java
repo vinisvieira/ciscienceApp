@@ -85,6 +85,11 @@ public class LoginActivityFragment extends Fragment implements IUserView, View.O
     }
 
     @Override
+    public void updateHeaderLayout() {
+
+    }
+
+    @Override
     public void login() {
         Student student = new Student();
         student.setEmail(this.textInputEditTextEmail.getText().toString());

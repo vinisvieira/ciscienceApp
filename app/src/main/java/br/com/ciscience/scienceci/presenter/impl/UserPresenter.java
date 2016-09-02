@@ -69,7 +69,7 @@ public class UserPresenter implements IUserPresenter {
     }
 
     @Override
-    public void changeAvatar(MultipartBody.Part file, String token) {
+    public void changeAvatar(MultipartBody.Part file, String token, Student student) {
         this.mIUserView.showProgressBar();
         this.mCompositeSubscription
                 .add(
@@ -82,7 +82,9 @@ public class UserPresenter implements IUserPresenter {
                                     @Override
                                     public void onCompleted() {
                                         Log.d(Constants.DEBUG_KEY, "onCompleted");
+                                        mIUserLocalAPI.setSession(student);
                                         mIUserView.hideProgressBar();
+                                        mIUserView.updateHeaderLayout();
                                     }
 
                                     @Override

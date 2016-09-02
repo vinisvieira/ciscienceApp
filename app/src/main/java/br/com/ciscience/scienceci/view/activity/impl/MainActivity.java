@@ -301,6 +301,29 @@ public class MainActivity extends AppCompatActivity implements IActivity, IUserV
     }
 
     @Override
+    public void updateHeaderLayout() {
+        View headerView = this.navigationView.getHeaderView(0);
+
+        TextView mStudentName = (TextView) headerView.findViewById(R.id.text_view_student_name);
+        CircleImageView circleImageViewStudentPicture = (CircleImageView) headerView.findViewById(R.id.circleImageViewProfile);
+        ImageView imageViewBadge = (ImageView) headerView.findViewById(R.id.imageViewBadge);
+        mStudentName.setText(this.mIUserPresenter.getSession().getName());
+
+        if (this.mIUserPresenter.getSession().getMyFile() != null) {
+            Picasso
+                    .with(MainActivity.this)
+                    .load(Constants.BASE_URL + Constants.DATAFILE_URL + this.mIUserPresenter.getSession().getMyFile().getName())
+                    .resize(1000, 1000)
+                    .onlyScaleDown()
+                    .into(circleImageViewStudentPicture);
+        }
+
+        Picasso.with(MainActivity.this)
+                .load(getResDrawable(this.mIUserPresenter.getSession().getScore().intValue()))
+                .into(imageViewBadge);
+    }
+
+    @Override
     public void login() {
 
     }

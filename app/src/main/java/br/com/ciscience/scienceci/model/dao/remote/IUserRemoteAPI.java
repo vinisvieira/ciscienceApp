@@ -39,7 +39,7 @@ public interface IUserRemoteAPI {
     @POST("student/avatar/mobile")
     Observable<Void> changeAvatar(
             @Part MultipartBody.Part file,
-            @Field("token") String token
-    );
+            @Header("token") String token
+            );
 
 }

@@ -5,6 +5,8 @@ package br.com.ciscience.scienceci.view.fragment;
  */
 public interface IFragment {
 
+    void init();
+
     void setUpListeners();
 
 }

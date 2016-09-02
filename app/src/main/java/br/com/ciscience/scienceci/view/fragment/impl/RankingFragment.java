@@ -51,6 +51,11 @@ public class RankingFragment extends Fragment implements IFragment, IRankingView
     }
 
     @Override
+    public void init() {
+
+    }
+
+    @Override
     public void setUpListeners() {
         this.swipeRefreshLayoutRanking.setColorSchemeResources(
                 R.color.colorPrimary,

@@ -36,11 +36,44 @@
 
     </android.support.design.widget.TextInputLayout>
 
+    <TextView
+        android:layout_width="155dp"
+        android:layout_height="155dp"
+        android:background="@color/colorShadow"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignLeft="@+id/circleImageViewProfile"
+        android:layout_alignStart="@+id/circleImageViewProfile"
+        android:layout_alignRight="@+id/circleImageViewProfile"
+        android:layout_alignEnd="@id/circleImageViewProfile"
+        android:weightSum="2">
+
+        <ImageButton
+            android:id="@+id/imageButtonCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_camera_alt_white_24dp"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_photo_library_black_24dp"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"/>
+
+    </LinearLayout>
+
     <ProgressBar
         android:id="@+id/progressBarMyProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="gone"/>
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

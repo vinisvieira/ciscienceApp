@@ -13,6 +13,8 @@ public interface IUserView {
 
     Student getSession();
 
+    void updateHeaderLayout();
+
     void login();
 
     void recoveryPassword();

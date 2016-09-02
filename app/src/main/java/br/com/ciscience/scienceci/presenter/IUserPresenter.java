@@ -12,7 +12,7 @@ public interface IUserPresenter {
 
     void login(Student student);
 
-    void changeAvatar(MultipartBody.Part file, String token);
+    void changeAvatar(MultipartBody.Part file, String token, Student student);
 
     void getRemoteSession(String token);
 

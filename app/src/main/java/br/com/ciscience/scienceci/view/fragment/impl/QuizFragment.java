@@ -60,6 +60,11 @@ public class QuizFragment extends Fragment implements IFragment, IQuizView, Swip
     }
 
     @Override
+    public void init() {
+
+    }
+
+    @Override
     public void setUpListeners() {
         this.swipeRefreshLayoutQuiz.setColorSchemeResources(
                 R.color.colorPrimary,
