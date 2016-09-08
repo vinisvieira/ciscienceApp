@@ -8,6 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import rx.Observable;
 
@@ -41,5 +42,12 @@ public interface IUserRemoteAPI {
             @Part MultipartBody.Part file,
             @Header("token") String token
             );
+
+    @FormUrlEncoded
+    @PUT("student/update/mobile")
+    Observable<Student> updateStudent(
+            @Field("name") String name,
+            @Header("token") String token
+    );
 
 }

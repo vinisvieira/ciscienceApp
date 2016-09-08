@@ -101,6 +101,36 @@ public class UserPresenter implements IUserPresenter {
     }
 
     @Override
+    public void updateStudent(Student student) {
+        this.mIUserView.showProgressBar();
+        this.mCompositeSubscription
+                .add(
+                        this.mUserRemoteAPI
+                                .getAPI()
+                                .updateStudent(student.getName(), this.mIUserLocalAPI.getSession().getToken())
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(new Observer<Student>() {
+                                    @Override
+                                    public void onCompleted() {
+                                        mIUserView.hideProgressBar();
+                                    }
+
+                                    @Override
+                                    public void onError(Throwable e) {
+                                        Log.e(Constants.DEBUG_KEY, e.getMessage(), e);
+                                        mIUserView.showSnackbarMessage(R.string.error_network_processing, Snackbar.LENGTH_LONG);
+                                    }
+
+                                    @Override
+                                    public void onNext(Student student) {
+                                        mIUserLocalAPI.setSession(student);
+                                    }
+                                })
+                );
+    }
+
+    @Override
     public void getRemoteSession(String token) {
         this.mIUserView.showProgressBar();
         this.mCompositeSubscription

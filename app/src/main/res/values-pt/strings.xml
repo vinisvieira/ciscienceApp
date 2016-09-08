@@ -18,6 +18,7 @@
     <string name="button_next_question">Próxima Questão</string>
     <string name="button_finish_quiz">Finalizar Quiz</string>
     <string name="button_back_home">VOLTAR PARA O INÍCIO</string>
+    <string name="button_update">Atualizar</string>
     <!-- END BUTTON STRINGS -->
 
     <!-- TEXTVIEW STRINGS -->

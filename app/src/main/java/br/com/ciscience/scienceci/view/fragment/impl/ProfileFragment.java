@@ -17,6 +17,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -275,7 +276,7 @@ public class ProfileFragment extends Fragment implements IFragment, IUserView, V
         }
     }
 
-    @OnClick({R.id.imageButtonCamera, R.id.imageButtonGallery})
+    @OnClick({R.id.imageButtonCamera, R.id.imageButtonGallery, R.id.buttonUpdate})
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -294,6 +295,17 @@ public class ProfileFragment extends Fragment implements IFragment, IUserView, V
                 break;
             case R.id.imageButtonGallery:
                 openGallery();
+                break;
+            case R.id.buttonUpdate:
+                Student student = this.mIUserPresenter.getSession();
+                student.setName(this.textInputEditTextName.getText().toString());
+
+                if (!TextUtils.isEmpty(student.getName())) {
+                    this.mIUserPresenter.updateStudent(student);
+                } else {
+                    this.showSnackbarMessage(R.string.error_empty_fields, Snackbar.LENGTH_LONG);
+                }
+
                 break;
         }
     }

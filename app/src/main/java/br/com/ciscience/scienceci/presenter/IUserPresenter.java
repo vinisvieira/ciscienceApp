@@ -14,6 +14,8 @@ public interface IUserPresenter {
 
     void changeAvatar(MultipartBody.Part file, String token, Student student);
 
+    void updateStudent(Student student);
+
     void getRemoteSession(String token);
 
     void recoveryPassword(String email, String recoveryKey);
