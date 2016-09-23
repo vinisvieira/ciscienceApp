@@ -3,6 +3,7 @@ package br.com.ciscience.scienceci.view.adapter;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,9 +61,19 @@ public class AlternativeRecyclerViewAdapter extends RecyclerView.Adapter<Alterna
     }
 
     public void showCorrectAlternative() {
-        correctAlternative.setText(correctAlternative.getText().toString().toUpperCase());
+        correctAlternative.setFocusable(true);
         correctAlternative.setTextColor(ContextCompat.getColor(correctAlternative.getContext(), R.color.colorAnswer));
         correctAlternative.setTypeface(Typeface.DEFAULT_BOLD);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.mContext)
+                .setMessage(this.mContext.getResources().getString(R.string.text_view_choose_alternative) + "\n\n" + this.mAlternatives.get(lastCheckedPos).getText()
+                        + "\n\n"
+                        + this.mContext.getResources().getString(R.string.text_view_correct_alternative) + "\n\n" + correctAlternative.getText().toString())
+                .setPositiveButton(this.mContext.getResources().getString(R.string.correct_alternative_dialog_ok), null);
+
+        AlertDialog alertDialog = builder.create();
+
+        alertDialog.show();
     }
 
     @Override

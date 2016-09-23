@@ -49,6 +49,8 @@
     <string name="text_view_rule_thirteen">13. The first place in the ranking will receive the Medal of the Crown</string>
     <string name="text_view_tech_problem">Tech Problems? Contact us!</string>
     <string name="text_view_science_contact">Contact Science Resultado</string>
+    <string name="text_view_choose_alternative">ALTERNATIVE CHOSEN:</string>
+    <string name="text_view_correct_alternative">CORRECT ALTERNATIVE:</string>
 
     <!-- END TEXTVIEW STRINGS -->
 
@@ -91,6 +93,7 @@
     <string name="logout_dialog_message">Do you really want to logout? :(</string>
     <string name="logout_dialog_positive_button">Yes</string>
     <string name="logout_dialog_negative_button">No way!</string>
+    <string name="correct_alternative_dialog_ok">OK</string>
     <!-- END STRINGS DIALOG FRAGMENT -->
 
     <!-- FAKE STRINGS -->
